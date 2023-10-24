@@ -8,6 +8,6 @@ export class Kata{
         return this._nombre;
     }
     getAutor(){
-        return "jorge";
+        return this._autor;
     }
 }
