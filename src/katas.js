@@ -1,7 +1,9 @@
 export class Kata{
-    constructor(nombre, autor){
+    constructor(nombre, autor, descripcion, dificultad){
         this._nombre = nombre;
         this._autor = autor;
+        this._descripcion = descripcion;
+        this._dificultad = dificultad;
     }
 
     getNombre(){
@@ -12,7 +14,7 @@ export class Kata{
     }
 
     mostrar(){
-        return `Nombre kata: ${this._nombre}, Autor: ${this._autor}<br>`;
+        return `<div>Nombre kata: ${this._nombre}, Autor: ${this._autor}</div>`;
     }
 }
 
@@ -21,10 +23,12 @@ export class CatalogoKata{
     {
         this.listaKatas = [];
     }
+
     agregarKata(kata)
     {
         this.listaKatas.push(kata);
     }
+
     mostrarCatalogoKatas(){
         let mensaje = "";
         for(let i = 0; i<this.listaKatas.length; i++)
@@ -33,4 +37,5 @@ export class CatalogoKata{
         }
         return mensaje;
     }
+
 }
