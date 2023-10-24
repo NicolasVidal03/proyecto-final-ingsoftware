@@ -12,6 +12,6 @@ export class Kata{
     }
 
     mostrar(){
-        return "Nombre kata: kata2, Autor: dario";
+        return `Nombre kata: ${this._nombre}, Autor: ${this._autor}`;
     }
 }
