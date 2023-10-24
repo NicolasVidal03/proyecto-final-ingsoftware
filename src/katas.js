@@ -7,4 +7,7 @@ export class Kata{
     getNombre(){
         return "kata1";
     }
+    getAutor(){
+        return "jorge";
+    }
 }
