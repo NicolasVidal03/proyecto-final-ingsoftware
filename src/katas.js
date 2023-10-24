@@ -21,5 +21,8 @@ export class CatalogoKata{
     {
         this.listaKatas = [];
     }
-    
+    agregarKata(kata)
+    {
+        this.listaKatas.push(kata);
+    }
 }

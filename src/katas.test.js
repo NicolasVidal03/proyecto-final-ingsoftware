@@ -17,5 +17,12 @@ describe("Obtiene el nombre", () => {
         const miCatalogo = new CatalogoKata();
         expect(miCatalogo.listaKatas.length).toEqual(0);
     })
+    it("deberia tener tamaño 1 porque se pusheo una kata", ()=> {
+        const miCatalogo = new CatalogoKata();
+        const miKata = new Kata('miKata', 'miAutor');
+        miCatalogo.agregarKata(miKata);
+        expect(miCatalogo.listaKatas.length).toBe(1);
+        expect(miCatalogo.listaKatas[0]).toBe(miKata);
+    })
 
 });
