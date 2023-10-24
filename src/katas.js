@@ -5,7 +5,7 @@ export class Kata{
     }
 
     getNombre(){
-        return "kata1";
+        return this._nombre;
     }
     getAutor(){
         return "jorge";
