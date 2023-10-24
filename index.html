@@ -1,13 +1,36 @@
+<head>
+  <link rel="stylesheet" href="styles.css">
+</head>
 <html>
   <body>
     <h1>Catalogo Katas</h1>
-
-    <a href="./aniadirKata.html" ><button >Añadir Kata</button></a>
+    <form id="boton-aniadir">
+      <input type="submit" value="Añadir Kata"></input>
+    </form>
+    
+    <form id="aniadir-kata" class="hide">
+      <h1>Añadir Kata</h1>
+      <span>Nombre de la Kata: </span>
+      <input type="text" placeholder="Ingrese el nombre..." id="nombre-kata">
+      <span>Ingrese el nombre del autor: </span>
+      <input type="text" placeholder="Autor..." id="nombre-autor"> <br>
+      <span>Ingrese la descripcion (opcional): </span>
+      <input type="text" placeholder="Descripcion" id="desc-kata">
+      <span>Ingrese la dificultad: </span>
+      <select id="dificultad-kata">
+        <option>Basico</option>
+        <option>Intermedio</option>
+        <option>Avanzado</option>
+      </select>
+      <input type="submit" value="Agregar Kata">
+    </form>
 
     <form id="catalogo-form">
       <input type="submit" value="Mostrar Katas" id="mostrar-button" />
     </form>
     <div id="resultado-div"></div>
+
+
 
     <script type="module" src="./src/presenter.js"></script>
   </body>

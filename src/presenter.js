@@ -2,6 +2,7 @@ import { Kata, CatalogoKata } from "./katas.js";
 
 const form_catalogo = document.querySelector("#catalogo-form");
 const form_aniadirKata = document.querySelector("#aniadir-kata");
+const boton_aniadir = document.querySelector('#boton-aniadir');
 const catalogoCompleto = document.querySelector("#resultado-div");
 
 const aniadir_nombre = document.querySelector("#nombre-kata");
@@ -21,16 +22,40 @@ lista.agregarKata(prueba2);
 lista.agregarKata(prueba3);
 lista.agregarKata(prueba4);
 
+
 catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
 
+
+
+
+
+form_catalogo.addEventListener("submit", (event) => {
+    //catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
+});
+
+
+
 //AÑADIR KATA
+
+boton_aniadir.addEventListener("submit", (event) => {
+  event.preventDefault();
+    form_aniadirKata.classList.remove('hide');
+    boton_aniadir.classList.add('hide');
+});
+
 form_aniadirKata.addEventListener("submit", (event) => {
   event.preventDefault();
     const nombre = aniadir_nombre.value;
     const autor = aniadir_autor.value;
     const desc = aniadir_desc.value;
     const dif = aniadir_dif.value; 
+    if(!nombre && !autor) {
     const kata = new Kata(nombre, autor, desc, dif);
     lista.agregarKata(kata);
-    catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
+    alert(lista.mostrarCatalogoKatas());
+    location.href = "index.html";
+    }
+    else {
+        alert("Se debe ingresar obligatoriamente el nombre de la kata y su autor");
+    }
 });
