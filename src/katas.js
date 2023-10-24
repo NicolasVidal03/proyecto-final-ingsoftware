@@ -10,4 +10,8 @@ export class Kata{
     getAutor(){
         return this._autor;
     }
+
+    mostrar(){
+        return "Nombre kata: kata2, Autor: dario";
+    }
 }

@@ -9,4 +9,8 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata1", "jorge")
         expect(kata.getAutor()).toEqual("jorge");
     });
+    it("debería mostrar el nombre y autor", () => {
+        const kata = new Kata("kata2", "dario")
+        expect(kata.mostrar()).toEqual("Nombre kata: kata2, Autor: dario");
+    });
 });
