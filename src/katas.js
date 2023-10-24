@@ -15,3 +15,11 @@ export class Kata{
         return `Nombre kata: ${this._nombre}, Autor: ${this._autor}`;
     }
 }
+
+export class CatalogoKata{
+    constructor()
+    {
+        this.listaKatas = [];
+    }
+    
+}

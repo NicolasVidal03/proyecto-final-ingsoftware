@@ -1,4 +1,4 @@
-import { Kata } from "./katas";
+import { Kata, CatalogoKata } from "./katas";
 
 describe("Obtiene el nombre", () => {
     it("debería obtener el nombre", () => {
@@ -13,4 +13,9 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata2", "dario")
         expect(kata.mostrar()).toEqual("Nombre kata: kata2, Autor: dario");
     });
+    it("deberia tener tamaño 0", ()=> {
+        const miCatalogo = new CatalogoKata();
+        expect(miCatalogo.listaKatas.length).toEqual(0);
+    })
+
 });
