@@ -12,7 +12,7 @@ export class Kata{
     }
 
     mostrar(){
-        return `Nombre kata: ${this._nombre}, Autor: ${this._autor}`;
+        return `Nombre kata: ${this._nombre}, Autor: ${this._autor}<br>`;
     }
 }
 
@@ -24,5 +24,13 @@ export class CatalogoKata{
     agregarKata(kata)
     {
         this.listaKatas.push(kata);
+    }
+    mostrarCatalogoKatas(){
+        let mensaje = "";
+        for(let i = 0; i<this.listaKatas.length; i++)
+        {
+            mensaje+=this.listaKatas[i].mostrar();
+        }
+        return mensaje;
     }
 }
