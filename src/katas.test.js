@@ -76,6 +76,18 @@ describe("Obtiene el nombre", () => {
         const mensaje = "<div class=\"btn\">Nombre kata: kata1, Autor: autor1</div><div class=\"btn\">Nombre kata: kata3, Autor: autor3</div>";
         expect(miCatalogo.mostrarCatalogoKatas()).toEqual(mensaje);
     });*/
+    it("debería devolver la representación en string de la kata", () => {
+        // Crear una kata
+        const kata = new Kata('kata1', 'autor1', 'descripcion', 'dificultad');
+        kata.setId(123);
+    
+        // Llamar a la función mostrar
+        const resultado = kata.mostrar();
+    
+        // Comprobar que el resultado es el esperado
+        const esperado = '<div data-id="123">Nombre kata: kata1, Autor: autor1 <button data-id="123" class="editar-button">Editar</button><button data-id="123" class="eliminar-button">Eliminar</button></div>';
+        expect(resultado).toEqual(esperado);
+    });
     
     it("debería retornar id -1", () => {
         const kata = new Kata("kata1", "jorge", "descripcion", "")
@@ -109,6 +121,35 @@ describe("Obtiene el nombre", () => {
         miCatalogo.agregarKata(kata3);
         expect(miCatalogo.buscarPorId(1).getNombre()).toEqual("kata2");
     });
-
+    it("deberia devolver el nombre de la kata buscada", () => {
+        const catalogo = new CatalogoKata();
+        const kata1 = new Kata('kata1', 'autor1', "", "");
+        const kata2 = new Kata('kata2', 'autor2', "", "");
+        const kata3 = new Kata('kata3', 'autor3', "", "");
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+        catalogo.agregarKata(kata3);
+        expect(catalogo.buscarPorNombre(kata1)).toEqual("kata1");
+    })
+    it("debería devolver la representación en string del catálogo de katas", () => {
+        // Crear algunas katas
+        const kata1 = new Kata('kata1', 'autor1', 'descripcion', 'dificultad');
+        const kata2 = new Kata('kata2', 'autor2', 'descripcion', 'dificultad');
+    
+        // Crear un catálogo y agregar las katas
+        const catalogo = new CatalogoKata();
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+    
+        // Llamar a la función mostrarCatalogoKatas
+        const resultado = catalogo.mostrarCatalogoKatas();
+    
+        // Comprobar que el resultado es el esperado
+        const esperado = '<div data-id="0">Nombre kata: kata1, Autor: autor1 <button data-id="0" class="editar-button">Editar</button><button data-id="0" class="eliminar-button">Eliminar</button></div>' +
+                          '<div data-id="1">Nombre kata: kata2, Autor: autor2 <button data-id="1" class="editar-button">Editar</button><button data-id="1" class="eliminar-button">Eliminar</button></div>';
+        expect(resultado).toEqual(esperado);
+    });
+    
+    
 
 });

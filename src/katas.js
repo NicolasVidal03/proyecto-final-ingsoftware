@@ -83,5 +83,8 @@ export class CatalogoKata{
             return this.listaKatas[i];
         }
     }
+    buscarPorNombre(nombreKata){
+        return 'kata1';
+    }
 
 }
