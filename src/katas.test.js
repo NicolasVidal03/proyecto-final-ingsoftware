@@ -87,7 +87,17 @@ describe("Obtiene el nombre", () => {
         miCatalogo.agregarKata(kata1);
         expect(miCatalogo.getLista()[0].getId()).toEqual(0);
     });
-    
+    it("debería retornar id 2", () => {
+        const miCatalogo = new CatalogoKata();
+        const kata1 = new Kata('kata1', 'autor1', "", "");
+        const kata2 = new Kata('kata2', 'autor2', "", "");
+        const kata3 = new Kata('kata3', 'autor3', "", "");
+        miCatalogo.agregarKata(kata1);
+        miCatalogo.agregarKata(kata2);
+        miCatalogo.agregarKata(kata3);
+        miCatalogo.eliminarKata(1);
+        expect(miCatalogo.getLista()[1].getId()).toEqual(2);
+    });
 
 
 });
