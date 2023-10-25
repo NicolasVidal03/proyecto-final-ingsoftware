@@ -133,6 +133,7 @@ buscar_kata_nombre.addEventListener("submit", (event) => {
     //alert(buscador.value);  
     const listaBuscador = lista.buscarPorNombre(buscador.value);
     if(listaBuscador.length != 0) {
+      catalogoCompleto.innerHTML = "";
       listaBuscador.forEach(mostrarKatas);
     }
     else {
