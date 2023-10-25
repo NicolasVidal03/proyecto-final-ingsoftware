@@ -16,14 +16,14 @@ describe("Obtiene el nombre", () => {
     it("deberia tener tamaño 0", ()=> {
         const miCatalogo = new CatalogoKata();
         expect(miCatalogo.listaKatas.length).toEqual(0);
-    })
+    });
     it("deberia tener tamaño 1 porque se pusheo una kata", ()=> {
         const miCatalogo = new CatalogoKata();
         const miKata = new Kata('miKata', 'miAutor', "", "");
         miCatalogo.agregarKata(miKata);
         expect(miCatalogo.listaKatas.length).toBe(1);
         expect(miCatalogo.listaKatas[0]).toBe(miKata);
-    })
+    });
     it("deberia mostrar la lista de katas esperada", ()=> {
         const miCatalogo = new CatalogoKata();
         const kata1 = new Kata('kata1', 'autor1', "", "");
@@ -32,6 +32,13 @@ describe("Obtiene el nombre", () => {
         miCatalogo.agregarKata(kata2);
         const mensajeEsperado = "<div>Nombre kata: kata1, Autor: autor1</div><div>Nombre kata: kata2, Autor: autor2</div>";
         expect(miCatalogo.mostrarCatalogoKatas()).toBe(mensajeEsperado);
-    })
+    });
+
+
+    it("debería cambiar el nombre de la kata a prueba", () => {
+        const kata = new Kata("kata1", "jorge", "", "")
+        kata.setNombre("prueba");
+        expect(kata.getNombre()).toEqual("prueba");
+    });
 
 });

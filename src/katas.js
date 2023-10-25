@@ -13,6 +13,10 @@ export class Kata{
         return this._autor;
     }
 
+    setNombre(nom) {
+        this._nombre = nom;
+    }
+
     mostrar(){
         return `<div>Nombre kata: ${this._nombre}, Autor: ${this._autor}</div>`;
     }
