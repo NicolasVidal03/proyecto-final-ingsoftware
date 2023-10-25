@@ -1,11 +1,9 @@
 import { Kata, CatalogoKata } from "./katas.js";
 
-
 const form_aniadirKata = document.querySelector("#aniadir-kata");
 const boton_aniadir = document.querySelector('#boton-aniadir');
 const catalogoCompleto = document.querySelector("#resultado-div");
 const form_editarKata = document.querySelector("#editar-kata");
-const form_eliminarKata = document.querySelector("#eliminar-kata");
 
 const aniadir_nombre = document.querySelector("#nombre-kata");
 const aniadir_autor = document.querySelector("#nombre-autor");
@@ -25,7 +23,19 @@ lista.agregarKata(prueba3);
 lista.agregarKata(prueba4);
 
 
-catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
+
+//MOSTRAR KATAS
+const katas_disponibles = lista.getLista();
+katas_disponibles.forEach(mostrarKatas);
+
+function mostrarKatas(kata) {
+  catalogoCompleto.innerHTML += "<div id=\"contenedor-kata\" data-id=\"" + kata.getId() + "\">" +
+  "<h4>" + kata.getNombre() + "</h4>" +
+  "<span>" + kata.getAutor() + "<span>" +
+  "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" + 
+  "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
+  "</div>";
+}
 
 
 //AÑADIR KATA
@@ -33,6 +43,7 @@ boton_aniadir.addEventListener("submit", (event) => {
   event.preventDefault();
     form_aniadirKata.classList.remove('hide');
     boton_aniadir.classList.add('hide');
+    form_editarKata.classList.add('hide');
 });
 
 form_aniadirKata.addEventListener("submit", (event) => {
@@ -49,8 +60,9 @@ form_aniadirKata.addEventListener("submit", (event) => {
         aniadir_nombre.value = "";
         aniadir_autor.value = "";
         aniadir_desc.value = "";
-        aniadir_dif.value = ""; 
-        catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
+        aniadir_dif.value = "";
+        catalogoCompleto.innerHTML = "";
+        lista.getLista().forEach(mostrarKatas); 
     }
     else {
         alert("Se debe ingresar obligatoriamente el nombre de la kata y su autor");
@@ -60,8 +72,7 @@ form_aniadirKata.addEventListener("submit", (event) => {
 
 
 //EDITAR KATA
-const contenedor = document.querySelector("#catologo-katas");
-contenedor.addEventListener("click", function(event) {
+catalogoCompleto.addEventListener("click", function(event) {
   if (event.target.classList.contains("editar-button")) {
     const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
     if (pos !== -1) {
@@ -72,6 +83,8 @@ contenedor.addEventListener("click", function(event) {
 
 function editarKata(pos) {
   form_editarKata.classList.remove('hide');
+  form_aniadirKata.classList.add('hide');
+  boton_aniadir.classList.remove('hide');
 
   document.querySelector("#editar-nombre-kata").value = lista.getLista()[pos].getNombre();
   document.querySelector("#editar-nombre-autor").value = lista.getLista()[pos].getAutor();
@@ -85,12 +98,13 @@ function editarKata(pos) {
     lista.getLista()[pos].setDescripcion(document.querySelector("#editar-desc-kata").value);
     lista.getLista()[pos].setDificultad(document.querySelector("#editar-dificultad-kata").value);
     form_editarKata.classList.add('hide');
-    catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
+    catalogoCompleto.innerHTML = "";
+    lista.getLista().forEach(mostrarKatas); 
   });
 }
 
 //ELIMINAR KATA
-contenedor.addEventListener("click", function(event) {
+catalogoCompleto.addEventListener("click", function(event) {
   if (event.target.classList.contains("eliminar-button")) {
     const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
     if (pos !== -1) {
@@ -100,6 +114,11 @@ contenedor.addEventListener("click", function(event) {
 });
 
 function eliminarKata(pos) {
+  form_editarKata.classList.add('hide');
+  form_aniadirKata.classList.add('hide');
+  boton_aniadir.classList.remove('hide');
+
   lista.eliminarKata(pos);
-  catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
+  catalogoCompleto.innerHTML = "";
+  lista.getLista().forEach(mostrarKatas); 
 }

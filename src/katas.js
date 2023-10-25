@@ -51,11 +51,12 @@ export class CatalogoKata{
     constructor()
     {
         this.listaKatas = [];
+        this.cont = 0;
     }
 
     agregarKata(kata)
     {
-        kata.setId(this.listaKatas.length);
+        kata.setId(this.cont++);
         this.listaKatas.push(kata);
     }
 
