@@ -122,3 +122,21 @@ function eliminarKata(pos) {
   catalogoCompleto.innerHTML = "";
   lista.getLista().forEach(mostrarKatas); 
 }
+
+
+//BUSCAR POR NOMBRE
+const buscar_kata_nombre = document.querySelector("#buscar-por-nombre");
+const buscador = document.querySelector("#buscador");
+
+buscar_kata_nombre.addEventListener("submit", (event) => {
+  event.preventDefault();
+    //alert(buscador.value);  
+    const listaBuscador = lista.buscarPorNombre(buscador.value);
+    if(listaBuscador.length != 0) {
+      listaBuscador.forEach(mostrarKatas);
+    }
+    else {
+      alert("No hay katas con ese nombre");
+    }
+});
+
