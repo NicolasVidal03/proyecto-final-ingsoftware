@@ -1,5 +1,5 @@
 import { Kata, CatalogoKata } from "./katas"
-import arrayKatasConMismaDificultad from "./buscarPorDificultad";
+import {arrayKatasConMismaDificultad, mostrarKatas} from "./buscarPorDificultad";
 
 describe("Devuelve un array de katas donde coinciden con su dificultad", () => {
     it("deberia devolver una instancia de la clase kata con dificultad basico", () => {
@@ -69,6 +69,26 @@ describe("Devuelve un array de katas donde coinciden con su dificultad", () => {
         expect(listKatas.length).toEqual(0);
 
     });
+
+    it("se añade funcion de mostrar lista de katas con las coincidencias encontradas", () => {
+        //katas
+        let prueba = new Kata('kata 1', 'Oswa','Descripcion Oswa','Avanzado')
+        let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico','Basico')
+        let prueba2 = new Kata('kata 3', 'Cris','Descripcion Cris','Avanzado')
+        let prueba3 = new Kata('kata 4', 'Sebas','Descripcion Sebas','Avanzado')
+        //lista de katas
+        let lista = new CatalogoKata();
+        lista.agregarKata(prueba);
+        lista.agregarKata(prueba1);
+        lista.agregarKata(prueba2);
+        lista.agregarKata(prueba3);
+
+        const listKatas = arrayKatasConMismaDificultad(lista,"Avanzado");
+        const expectedOutput = `<div data-id="${prueba._id}">Nombre kata: ${prueba._nombre}, Autor: ${prueba._autor} <button data-id="${prueba._id}" class="editar-button">Editar</button><button data-id="${prueba._id}" class="eliminar-button">Eliminar</button></div><div data-id="${prueba2._id}">Nombre kata: ${prueba2._nombre}, Autor: ${prueba2._autor} <button data-id="${prueba2._id}" class="editar-button">Editar</button><button data-id="${prueba2._id}" class="eliminar-button">Eliminar</button></div><div data-id="${prueba3._id}">Nombre kata: ${prueba3._nombre}, Autor: ${prueba3._autor} <button data-id="${prueba3._id}" class="editar-button">Editar</button><button data-id="${prueba3._id}" class="eliminar-button">Eliminar</button></div>`;
+        expect(mostrarKatas(listKatas)).toEqual(expectedOutput);
+
+    });
+
     
 })
 

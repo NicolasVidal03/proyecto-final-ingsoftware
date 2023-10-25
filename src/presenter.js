@@ -1,9 +1,12 @@
 import { Kata, CatalogoKata } from "./katas.js";
+import { arrayKatasConMismaDificultad, mostrarKatas } from "./buscarPorDificultad.js";
 
 const form_aniadirKata = document.querySelector("#aniadir-kata");
 const boton_aniadir = document.querySelector('#boton-aniadir');
 const catalogoCompleto = document.querySelector("#resultado-div");
 const form_editarKata = document.querySelector("#editar-kata");
+
+const form_buscar_dificultad = document.querySelector("#buscar");
 
 const aniadir_nombre = document.querySelector("#nombre-kata");
 const aniadir_autor = document.querySelector("#nombre-autor");
@@ -11,16 +14,33 @@ const aniadir_desc = document.querySelector("#desc-kata");
 const aniadir_dif = document.querySelector("#dificultad-kata");
 
 
-let prueba = new Kata('kata 1', 'Sebas')
-let prueba2 = new Kata('kata 2', 'Oswa')
-let prueba3 = new Kata('kata 3', 'Cris')
-let prueba4 = new Kata('kata 4', 'Nico')
+let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado');
+let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico', 'Basico');
+let prueba2 = new Kata('kata 3', 'Cris', 'Descripcion Cris', 'Intermedio');
+let prueba3 = new Kata('kata 4', 'Sebas', 'Descripcion Sebas', 'Avanzado');
+let prueba4 = new Kata('kata 5', 'Alex', 'Descripcion Alex', 'Intermedio');
+let prueba5 = new Kata('kata 6', 'Laura', 'Descripcion Laura', 'Avanzado');
+let prueba6 = new Kata('kata 7', 'Juan', 'Descripcion Juan', 'Intermedio');
+let prueba7 = new Kata('kata 8', 'María', 'Descripcion María', 'Avanzado');
+let prueba8 = new Kata('kata 9', 'Rodrigo', 'Descripcion Rodrigo', 'Basico');
+let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio');
+let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico');
+let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico');
+
 
 let lista = new CatalogoKata();
 lista.agregarKata(prueba);
+lista.agregarKata(prueba1);
 lista.agregarKata(prueba2);
 lista.agregarKata(prueba3);
 lista.agregarKata(prueba4);
+lista.agregarKata(prueba5);
+lista.agregarKata(prueba6);
+lista.agregarKata(prueba7);
+lista.agregarKata(prueba8);
+lista.agregarKata(prueba9);
+lista.agregarKata(prueba10);
+lista.agregarKata(prueba11);  
 
 
 
@@ -141,3 +161,16 @@ buscar_kata_nombre.addEventListener("submit", (event) => {
     }
 });
 
+
+//Buscar por dificultad
+
+form_buscar_dificultad.addEventListener("change",(event) => {
+  event.preventDefault();
+  const dificultad_busq = document.querySelector("#busq");
+  const dificultad_value = dificultad_busq.value;
+  console.log(dificultad_value)
+  const listKatas = arrayKatasConMismaDificultad(lista,dificultad_value);
+  console.log(listKatas.length)
+  catalogoCompleto.innerHTML = "<div id=\"busqueda-dificultad\">" + mostrarKatas(listKatas) + "</div>";
+}
+)

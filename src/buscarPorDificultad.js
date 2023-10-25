@@ -1,9 +1,16 @@
 function buscarPorDificultad(instKata, dificultad){
-    return instKata.getDificultad() === dificultad
+    return instKata.getDificultad() === dificultad;
 }
 
-function arrayKatasConMismaDificultad(lista, dificultad){
-    return lista.getLista().filter(instKata => buscarPorDificultad(instKata, dificultad))
+export function arrayKatasConMismaDificultad(lista, dificultad){
+    return lista.getLista().filter(instKata => buscarPorDificultad(instKata, dificultad));
 }
 
-export default arrayKatasConMismaDificultad
+export function mostrarKatas(listaKatas){
+    let mensaje = "";
+    for(let i = 0; i<listaKatas.length ; i++){
+        mensaje += listaKatas[i].mostrar();
+    }
+    return mensaje;
+}
+
