@@ -20,7 +20,7 @@ export class Kata{
         return this._dificultad;
     }
     getId() {
-        return -1;
+        return this._id;
     }
 
     setNombre(nombre) {
@@ -34,6 +34,9 @@ export class Kata{
     }
     setDificultad(dificultad) {
         this._dificultad = dificultad;
+    }
+    setId(id) {
+        this._id = id;
     }
 
     mostrar(){
@@ -52,6 +55,7 @@ export class CatalogoKata{
 
     agregarKata(kata)
     {
+        kata.setId(this.listaKatas.length);
         this.listaKatas.push(kata);
     }
 

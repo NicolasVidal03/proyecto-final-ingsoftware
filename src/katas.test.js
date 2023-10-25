@@ -81,6 +81,13 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata1", "jorge", "descripcion", "")
         expect(kata.getId()).toEqual(-1);
     });
+    it("debería retornar id 0", () => {
+        const miCatalogo = new CatalogoKata();
+        const kata1 = new Kata('kata1', 'autor1', "", "");
+        miCatalogo.agregarKata(kata1);
+        expect(miCatalogo.getLista()[0].getId()).toEqual(0);
+    });
     
+
 
 });
