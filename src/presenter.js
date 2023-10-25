@@ -4,6 +4,7 @@ import { Kata, CatalogoKata } from "./katas.js";
 const form_aniadirKata = document.querySelector("#aniadir-kata");
 const boton_aniadir = document.querySelector('#boton-aniadir');
 const catalogoCompleto = document.querySelector("#resultado-div");
+const form_editarKata = document.querySelector("#editar-kata");
 
 const aniadir_nombre = document.querySelector("#nombre-kata");
 const aniadir_autor = document.querySelector("#nombre-autor");
@@ -58,13 +59,33 @@ form_aniadirKata.addEventListener("submit", (event) => {
 
 //EDITAR KATA
 
-const btnPulsado = (pos) => {
+const btnPulsado = (e, pos) => {
+  alert(pos);
+  const div = e.target;
+  form_editarKata.classList.remove('hide')
+
+  document.querySelector("#editar-nombre-kata").value = lista.getLista()[pos].getNombre();
+  document.querySelector("#editar-nombre-autor").value = lista.getLista()[pos].getAutor();
+  document.querySelector("#editar-desc-kata").value = lista.getLista()[pos].getDescripcion();
+  document.querySelector("#editar-dificultad-kata").value = lista.getLista()[pos].getDificultad();
+  form_editarKata.addEventListener("submit", (event) => {
+    event.preventDefault();
+      lista.getLista()[pos].setNombre(document.querySelector("#editar-nombre-kata").value);
+      lista.getLista()[pos].setAutor(document.querySelector("#editar-nombre-autor").value);
+      lista.getLista()[pos].setDescripcion(document.querySelector("#editar-desc-kata").value);
+      lista.getLista()[pos].setDificultad(document.querySelector("#editar-dificultad-kata").value);
+      form_editarKata.classList.add('hide');
+      catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
+  });
   alert(lista.getLista()[pos].getNombre() + lista.getLista()[pos].getAutor());
+  
 }
 
 
+
+
 document.querySelectorAll('.btn').forEach(
-  (obj , i) => obj.addEventListener('click', (e) =>btnPulsado(i)));
+  (obj , i) => obj.addEventListener('click', (e) =>btnPulsado(e, i)));
 
 
 
