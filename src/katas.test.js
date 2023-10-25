@@ -45,6 +45,10 @@ describe("Obtiene el nombre", () => {
         kata.setAutor("autor2");
         expect(kata.getAutor()).toEqual("autor2");
     });
+    it("debería devolver la descripcion de la kata", () => {
+        const kata = new Kata("kata1", "jorge", "descripcion", "");
+        expect(kata.getDescripcion()).toEqual("descripcion");
+    });
     
 
 });

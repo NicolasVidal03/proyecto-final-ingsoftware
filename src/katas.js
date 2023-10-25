@@ -12,6 +12,9 @@ export class Kata{
     getAutor(){
         return this._autor;
     }
+    getDescripcion() {
+        return "descripcion";
+    }
 
     setNombre(nom) {
         this._nombre = nom;
