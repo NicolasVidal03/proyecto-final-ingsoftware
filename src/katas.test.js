@@ -129,8 +129,9 @@ describe("Obtiene el nombre", () => {
         catalogo.agregarKata(kata1);
         catalogo.agregarKata(kata2);
         catalogo.agregarKata(kata3);
-        expect(catalogo.buscarPorNombre(kata1)).toEqual("kata1");
+        expect(catalogo.buscarPorNombre('kata1').getNombre()).toEqual("kata1");
     })
+    
     it("debería devolver la representación en string del catálogo de katas", () => {
         // Crear algunas katas
         const kata1 = new Kata('kata1', 'autor1', 'descripcion', 'dificultad');

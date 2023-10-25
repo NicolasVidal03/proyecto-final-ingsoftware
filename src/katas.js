@@ -84,7 +84,14 @@ export class CatalogoKata{
         }
     }
     buscarPorNombre(nombreKata){
-        return 'kata1';
+        for(let i = 0; i<this.listaKatas.length; i++)
+        {
+            if(this.listaKatas[i].getNombre() === nombreKata){
+                return this.listaKatas[i];
+            }
+        }
+        return null;
     }
+    
 
 }
