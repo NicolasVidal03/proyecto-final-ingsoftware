@@ -168,9 +168,15 @@ form_buscar_dificultad.addEventListener("change",(event) => {
   event.preventDefault();
   const dificultad_busq = document.querySelector("#busq");
   const dificultad_value = dificultad_busq.value;
-  console.log(dificultad_value)
-  const listKatas = arrayKatasConMismaDificultad(lista,dificultad_value);
-  console.log(listKatas.length)
-  catalogoCompleto.innerHTML = "<div id=\"busqueda-dificultad\">" + mostrarKatas(listKatas) + "</div>";
+  if(dificultad_value != ""){
+    const listKatas = arrayKatasConMismaDificultad(lista,dificultad_value);
+    if(listKatas.length > 0){
+      catalogoCompleto.innerHTML = "<div id=\"busqueda-dificultad\">" + mostrarKatas(listKatas) + "</div>";
+    }
+    else{
+      alert("No se han encontrado coincidencias!!!");
+    }
+    
+  }
 }
 )
