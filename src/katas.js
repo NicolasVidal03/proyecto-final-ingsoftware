@@ -85,13 +85,14 @@ export class CatalogoKata{
         }
     }
     buscarPorNombre(nombreKata){
+        const coincidencias = [];
         for(let i = 0; i<this.listaKatas.length; i++)
         {
             if(this.listaKatas[i].getNombre() === nombreKata){
-                return this.listaKatas[i];
+                coincidencias.push(this.listaKatas[i]);
             }
         }
-        return null;
+        return coincidencias;
     }
     
 
