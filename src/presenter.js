@@ -61,7 +61,7 @@ form_aniadirKata.addEventListener("submit", (event) => {
 //EDITAR KATA
 
 const btnPulsado = (e, pos) => {
-  alert(pos);
+  alert(e.target.getAttribute("data-id"));
   const div = e.target;
   form_editarKata.classList.remove('hide')
 
@@ -88,7 +88,7 @@ const btnPulsado = (e, pos) => {
 
 
 
-document.querySelectorAll('.btn').forEach(
+document.querySelectorAll('.editar-button').forEach(
   (obj , i) => {
     obj.removeEventListener('click', (e) => btnPulsado(e, i));
     obj.addEventListener('click', (e) =>btnPulsado(e, i))

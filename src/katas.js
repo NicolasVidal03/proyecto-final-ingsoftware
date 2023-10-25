@@ -41,7 +41,7 @@ export class Kata{
 
     mostrar(){
 //        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
-    return `<div class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</div>`;
+    return `<div data-id=\"${this._id}\">Nombre kata: ${this._nombre}, Autor: ${this._autor} <button id=\"editar-button\">Editar</button><button id=\"eliminar-button\">Eliminar</button></div>`;
     }
 
 
@@ -74,6 +74,14 @@ export class CatalogoKata{
             mensaje+=this.listaKatas[i].mostrar();
         }
         return mensaje;
+    }
+
+    buscarPorId(id) {
+        for(let i = 0; i< this.listaKatas.length; i++)
+        {
+            if(this.listaKatas[i].getId() == id)
+            return this.listaKatas[i];
+        }
     }
 
 }
