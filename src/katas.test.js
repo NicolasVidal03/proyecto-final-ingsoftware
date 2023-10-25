@@ -58,6 +58,11 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata1", "jorge", "descripcion", "dificultad");
         expect(kata.getDificultad()).toEqual("dificultad");
     });
+    it("debería cambiar la dificultad a avanzado", () => {
+        const kata = new Kata("kata1", "jorge", "descripcion", "")
+        kata.setDificultad("avanzado");
+        expect(kata.getDificultad()).toEqual("avanzado");
+    });
     
 
 });

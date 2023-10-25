@@ -16,7 +16,7 @@ export class Kata{
         return this._descripcion;
     }
     getDificultad() {
-        return "dificultad";
+        return this._dificultad;
     }
 
     setNombre(nombre) {
@@ -27,6 +27,9 @@ export class Kata{
     }
     setDescripcion(desc) {
         this._descripcion = desc;
+    }
+    setDificultad(dificultad) {
+        this._dificultad = dificultad;
     }
 
     mostrar(){
