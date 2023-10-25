@@ -11,7 +11,7 @@ describe("Obtiene el nombre", () => {
     });
     it("debería mostrar el nombre y autor", () => {
         const kata = new Kata("kata2", "dario", "", "")
-        expect(kata.mostrar()).toEqual("<div>Nombre kata: kata2, Autor: dario</div>");
+        expect(kata.mostrar()).toEqual("<div class=\"btn\">Nombre kata: kata2, Autor: dario</div>");
     });
     it("deberia tener tamaño 0", ()=> {
         const miCatalogo = new CatalogoKata();
@@ -30,7 +30,7 @@ describe("Obtiene el nombre", () => {
         const kata2 = new Kata('kata2', 'autor2', "", "");
         miCatalogo.agregarKata(kata1);
         miCatalogo.agregarKata(kata2);
-        const mensajeEsperado = "<div>Nombre kata: kata1, Autor: autor1</div><div>Nombre kata: kata2, Autor: autor2</div>";
+        const mensajeEsperado = "<div class=\"btn\">Nombre kata: kata1, Autor: autor1</div><div class=\"btn\">Nombre kata: kata2, Autor: autor2</div>";
         expect(miCatalogo.mostrarCatalogoKatas()).toBe(mensajeEsperado);
     });
 
@@ -62,6 +62,19 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata1", "jorge", "descripcion", "")
         kata.setDificultad("avanzado");
         expect(kata.getDificultad()).toEqual("avanzado");
+    });
+
+    it("debería eliminar un elemento de la lista de katas", () => {
+        const miCatalogo = new CatalogoKata();
+        const kata1 = new Kata('kata1', 'autor1', "", "");
+        const kata2 = new Kata('kata2', 'autor2', "", "");
+        const kata3 = new Kata('kata3', 'autor3', "", "");
+        miCatalogo.agregarKata(kata1);
+        miCatalogo.agregarKata(kata2);
+        miCatalogo.agregarKata(kata3);
+        miCatalogo.eliminarKata(1);
+        const mensaje = "<div class=\"btn\">Nombre kata: kata1, Autor: autor1</div><div class=\"btn\">Nombre kata: kata3, Autor: autor3</div>";
+        expect(miCatalogo.mostrarCatalogoKatas()).toEqual(mensaje);
     });
     
 

@@ -51,6 +51,10 @@ export class CatalogoKata{
         this.listaKatas.push(kata);
     }
 
+    eliminarKata(pos) {
+        this.listaKatas.splice(pos, 1);
+    }
+
     getLista(){
         return this.listaKatas;
     }
