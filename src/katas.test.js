@@ -49,6 +49,15 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata1", "jorge", "descripcion", "");
         expect(kata.getDescripcion()).toEqual("descripcion");
     });
+    it("debería cambiar la descripcion a prueba_descripcion", () => {
+        const kata = new Kata("kata1", "jorge", "descripcion", "")
+        kata.setDescripcion("prueba_descripcion");
+        expect(kata.getDescripcion()).toEqual("prueba_descripcion");
+    });
+    it("debería devolver la dificultad", () => {
+        const kata = new Kata("kata1", "jorge", "descripcion", "dificultad");
+        expect(kata.getDificultad()).toEqual("dificultad");
+    });
     
 
 });

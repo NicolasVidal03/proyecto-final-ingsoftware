@@ -13,15 +13,20 @@ export class Kata{
         return this._autor;
     }
     getDescripcion() {
-        return "descripcion";
+        return this._descripcion;
+    }
+    getDificultad() {
+        return "dificultad";
     }
 
-    setNombre(nom) {
-        this._nombre = nom;
+    setNombre(nombre) {
+        this._nombre = nombre;
     }
-
-    setAutor(aut) {
-        this._autor = aut;
+    setAutor(autor) {
+        this._autor = autor;
+    }
+    setDescripcion(desc) {
+        this._descripcion = desc;
     }
 
     mostrar(){
