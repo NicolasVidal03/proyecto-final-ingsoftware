@@ -89,3 +89,17 @@ function editarKata(pos) {
   });
 }
 
+//ELIMINAR KATA
+contenedor.addEventListener("click", function(event) {
+  if (event.target.classList.contains("eliminar-button")) {
+    const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
+    if (pos !== -1) {
+      eliminarKata(pos);
+    }
+  }
+});
+
+function eliminarKata(pos) {
+  lista.eliminarKata(pos);
+  catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
+}
