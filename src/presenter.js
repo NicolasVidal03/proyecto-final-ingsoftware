@@ -5,6 +5,7 @@ const form_aniadirKata = document.querySelector("#aniadir-kata");
 const boton_aniadir = document.querySelector('#boton-aniadir');
 const catalogoCompleto = document.querySelector("#resultado-div");
 const form_editarKata = document.querySelector("#editar-kata");
+const form_eliminarKata = document.querySelector("#eliminar-kata");
 
 const aniadir_nombre = document.querySelector("#nombre-kata");
 const aniadir_autor = document.querySelector("#nombre-autor");
@@ -68,6 +69,7 @@ const btnPulsado = (e, pos) => {
   document.querySelector("#editar-nombre-autor").value = lista.getLista()[pos].getAutor();
   document.querySelector("#editar-desc-kata").value = lista.getLista()[pos].getDescripcion();
   document.querySelector("#editar-dificultad-kata").value = lista.getLista()[pos].getDificultad();
+
   form_editarKata.addEventListener("submit", (event) => {
     event.preventDefault();
       lista.getLista()[pos].setNombre(document.querySelector("#editar-nombre-kata").value);
@@ -77,6 +79,8 @@ const btnPulsado = (e, pos) => {
       form_editarKata.classList.add('hide');
       catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
   });
+
+
   alert(lista.getLista()[pos].getNombre() + lista.getLista()[pos].getAutor());
   
 }
@@ -85,7 +89,7 @@ const btnPulsado = (e, pos) => {
 
 
 document.querySelectorAll('.btn').forEach(
-  (obj , i) => obj.addEventListener('click', (e) =>btnPulsado(e, i)));
-
-
-
+  (obj , i) => {
+    obj.removeEventListener('click', (e) => btnPulsado(e, i));
+    obj.addEventListener('click', (e) =>btnPulsado(e, i))
+  });

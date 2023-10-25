@@ -77,5 +77,10 @@ describe("Obtiene el nombre", () => {
         expect(miCatalogo.mostrarCatalogoKatas()).toEqual(mensaje);
     });
     
+    it("debería retornar id -1", () => {
+        const kata = new Kata("kata1", "jorge", "descripcion", "")
+        expect(kata.getId()).toEqual(-1);
+    });
+    
 
 });
