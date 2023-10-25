@@ -145,45 +145,5 @@ function eliminarKata(pos) {
 
   lista.eliminarKata(pos);
   catalogoCompleto.innerHTML = "";
-  lista.getLista().forEach(mostrarCatalogoKatas); 
+  lista.getLista().forEach(mostrarKatas); 
 }
-
-
-//BUSCAR POR NOMBRE
-const buscar_kata_nombre = document.querySelector("#buscar-por-nombre");
-const buscador = document.querySelector("#buscador");
-
-buscar_kata_nombre.addEventListener("submit", (event) => {
-  event.preventDefault();
-    //alert(buscador.value);  
-    const listaBuscador = lista.buscarPorNombre(buscador.value);
-    if(listaBuscador.length != 0) {
-      catalogoCompleto.innerHTML = "";
-      listaBuscador.forEach(mostrarCatalogoKatas);
-    }
-    else {
-      alert("No hay katas con ese nombre");
-    }
-});
-
-
-//Buscar por dificultad
-
-form_buscar_dificultad.addEventListener("change",(event) => {
-  event.preventDefault();
-  const dificultad_busq = document.querySelector("#busq");
-  const dificultad_value = dificultad_busq.value;
-  if(dificultad_value != ""){
-    const listKatas = arrayKatasConMismaDificultad(lista,dificultad_value);
-    if(listKatas.length > 0){
-      catalogoCompleto.innerHTML = "";
-      listKatas.forEach(mostrarCatalogoKatas);
-      //catalogoCompleto.innerHTML = "<div id=\"busqueda-dificultad\">" + mostrarKatas(listKatas) + "</div>";
-    }
-    else{
-      alert("No se han encontrado coincidencias!!!");
-    }
-    
-  }
-}
-)
