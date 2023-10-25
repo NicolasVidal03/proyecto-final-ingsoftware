@@ -41,7 +41,7 @@ export class Kata{
 
     mostrar(){
 //        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
-    return `<div data-id=\"${this._id}\">Nombre kata: ${this._nombre}, Autor: ${this._autor} <button id=\"editar-button\">Editar</button><button id=\"eliminar-button\">Eliminar</button></div>`;
+    return `<div data-id=\"${this._id}\">Nombre kata: ${this._nombre}, Autor: ${this._autor} <button data-id=\"${this._id}\" class=\"editar-button\">Editar</button><button data-id=\"${this._id}\" class=\"eliminar-button\">Eliminar</button></div>`;
     }
 
 

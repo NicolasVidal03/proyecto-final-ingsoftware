@@ -58,12 +58,20 @@ form_aniadirKata.addEventListener("submit", (event) => {
 });
 
 
-//EDITAR KATA
 
-const btnPulsado = (e, pos) => {
-  alert(e.target.getAttribute("data-id"));
-  const div = e.target;
-  form_editarKata.classList.remove('hide')
+//EDITAR KATA
+const contenedor = document.querySelector("#catologo-katas");
+contenedor.addEventListener("click", function(event) {
+  if (event.target.classList.contains("editar-button")) {
+    const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
+    if (pos !== -1) {
+      editarKata(pos);
+    }
+  }
+});
+
+function editarKata(pos) {
+  form_editarKata.classList.remove('hide');
 
   document.querySelector("#editar-nombre-kata").value = lista.getLista()[pos].getNombre();
   document.querySelector("#editar-nombre-autor").value = lista.getLista()[pos].getAutor();
@@ -72,24 +80,12 @@ const btnPulsado = (e, pos) => {
 
   form_editarKata.addEventListener("submit", (event) => {
     event.preventDefault();
-      lista.getLista()[pos].setNombre(document.querySelector("#editar-nombre-kata").value);
-      lista.getLista()[pos].setAutor(document.querySelector("#editar-nombre-autor").value);
-      lista.getLista()[pos].setDescripcion(document.querySelector("#editar-desc-kata").value);
-      lista.getLista()[pos].setDificultad(document.querySelector("#editar-dificultad-kata").value);
-      form_editarKata.classList.add('hide');
-      catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
+    lista.getLista()[pos].setNombre(document.querySelector("#editar-nombre-kata").value);
+    lista.getLista()[pos].setAutor(document.querySelector("#editar-nombre-autor").value);
+    lista.getLista()[pos].setDescripcion(document.querySelector("#editar-desc-kata").value);
+    lista.getLista()[pos].setDificultad(document.querySelector("#editar-dificultad-kata").value);
+    form_editarKata.classList.add('hide');
+    catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalogoKatas() + "</div>";
   });
-
-
-  alert(lista.getLista()[pos].getNombre() + lista.getLista()[pos].getAutor());
-  
 }
 
-
-
-
-document.querySelectorAll('.editar-button').forEach(
-  (obj , i) => {
-    obj.removeEventListener('click', (e) => btnPulsado(e, i));
-    obj.addEventListener('click', (e) =>btnPulsado(e, i))
-  });
