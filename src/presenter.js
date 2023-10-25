@@ -27,7 +27,6 @@ catalogoCompleto.innerHTML = "<div id=\"catologo-katas\">" + lista.mostrarCatalo
 
 
 //AÑADIR KATA
-
 boton_aniadir.addEventListener("submit", (event) => {
   event.preventDefault();
     form_aniadirKata.classList.remove('hide');
@@ -55,3 +54,17 @@ form_aniadirKata.addEventListener("submit", (event) => {
         alert("Se debe ingresar obligatoriamente el nombre de la kata y su autor");
     }
 });
+
+
+//EDITAR KATA
+
+const btnPulsado = (pos) => {
+  alert(lista.getLista()[pos].getNombre() + lista.getLista()[pos].getAutor());
+}
+
+
+document.querySelectorAll('.btn').forEach(
+  (obj , i) => obj.addEventListener('click', (e) =>btnPulsado(i)));
+
+
+

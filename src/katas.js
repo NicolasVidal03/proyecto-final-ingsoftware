@@ -33,8 +33,11 @@ export class Kata{
     }
 
     mostrar(){
-        return `<div>Nombre kata: ${this._nombre}, Autor: ${this._autor}</div>`;
+//        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
+    return `<div class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</div>`;
     }
+
+
 }
 
 export class CatalogoKata{
@@ -46,6 +49,10 @@ export class CatalogoKata{
     agregarKata(kata)
     {
         this.listaKatas.push(kata);
+    }
+
+    getLista(){
+        return this.listaKatas;
     }
 
     mostrarCatalogoKatas(){
