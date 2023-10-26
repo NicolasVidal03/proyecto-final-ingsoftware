@@ -223,5 +223,10 @@ describe("Obtiene el nombre", () => {
         kataPrueba.setEstado("Terminado");
         expect(kataPrueba.getEstado()).toEqual("Terminado");
     })
+    it("en caso de no ser un estado valido, no se cambia el estado", () => {
+        const kataPrueba = new Kata('Kata de prueba examen','SEBASTIAN','Para practicar','Basico');
+        kataPrueba.setEstado("ESTADO NO VALIDO");
+        expect(kataPrueba.getEstado()).toEqual("No terminado");
+    })
 
 });

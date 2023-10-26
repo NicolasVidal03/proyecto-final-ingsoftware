@@ -43,7 +43,8 @@ export class Kata{
         this._id = id;
     }
     setEstado(estado){
-        this._estado= estado;
+        if(estado == "No terminado" || estado == "Terminado")
+            this._estado= estado;
     }
 
 
