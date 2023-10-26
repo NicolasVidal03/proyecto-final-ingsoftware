@@ -205,3 +205,19 @@ buscar_kata_autor.addEventListener("submit", (event) => {
       alert("No hay katas con ese autor");
     }
 });
+
+const buscar_kata_desc = document.querySelector("#buscar-por-desc");
+const buscadorDesc = document.querySelector("#buscadorDesc");
+
+buscar_kata_desc.addEventListener("submit", (event) => {
+  event.preventDefault();
+    //alert(buscadorDesc.value);  
+    const listaBuscador = lista.buscarPorDescripcion(buscadorDesc.value);
+    if(listaBuscador.length != 0) {
+      catalogoCompleto.innerHTML = "";
+      listaBuscador.forEach(mostrarCatalogoKatas);
+    }
+    else {
+      alert("No hay katas con ese autor");
+    }
+});
