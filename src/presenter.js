@@ -53,7 +53,6 @@ katas_disponibles.forEach(mostrarCatalogoKatas);
 
 
 function mostrarCatalogoKatas(kata) {
-  
   catalogoCompleto.innerHTML += "<div id=\"contenedor-kata\"  data-id=\"" + kata.getId() + "\">" +
   "<h4 >" + kata.getNombre() + "</h4>" +
   "<span>"+ kata.getDescripcion() + "</span>"+

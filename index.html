@@ -6,8 +6,28 @@
     <h1>Catalogo Katas</h1>
 
     <form id="buscar-por-nombre">
-      <input id="buscador" type="text" placeholder="Buscar...">
+      <input id="buscador" type="text" placeholder="Buscar por nombre">
       <input type="submit" value="Buscar"></input>
+    </form>
+
+    <form id="buscar-por-autor">
+      <input id="buscadorAutor" type="text" placeholder="Ingrese el nombre del autor">
+      <input type="submit" value="Buscar"></input>
+    </form>
+
+    <form id="buscar-por-desc">
+      <input id="buscadorDesc" type="text" placeholder="Ingrese la descripcion">
+      <input type="submit" value="Buscar"></input>
+    </form>
+
+    <form id="buscar">
+      <span>Buscar kata mediante dificultad: </span>
+      <select name="search" id="busq">
+        <option value="">Selecciona una opción</option>
+        <option value="Basico">Basico</option>
+        <option value="Intermedio">Intermedio</option>
+        <option value="Avanzado">Avanzado</option>
+      </select>
     </form>
 
     <form id="boton-aniadir">
@@ -27,29 +47,10 @@
         <option>Basico</option>
         <option>Intermedio</option>
         <option>Avanzado</option>
-      </select>
+      </select> <br>
       <input type="submit" value="Agregar Kata">
     </form>
 
-    <form id="buscar">
-      <span>Buscar kata mediante dificultad: </span>
-      <select name="search" id="busq">
-        <option value="">Selecciona una opción</option>
-        <option value="Basico">Basico</option>
-        <option value="Intermedio">Intermedio</option>
-        <option value="Avanzado">Avanzado</option>
-      </select>
-    </form>
-
-    <form id="buscar-por-autor">
-      <input id="buscadorAutor" type="text" placeholder="Ingrese el nombre del autor">
-      <input type="submit" value="Buscar"></input>
-    </form>
-
-    <form id="buscar-por-desc">
-      <input id="buscadorDesc" type="text" placeholder="Ingrese la descripcion">
-      <input type="submit" value="Buscar"></input>
-    </form>
 
     <form id="editar-kata" class="hide">
       <h1>Editar Kata</h1>
@@ -64,7 +65,7 @@
         <option>Basico</option>
         <option>Intermedio</option>
         <option>Avanzado</option>
-      </select>
+      </select> <br>
       <input type="submit" value="Editar Kata">
     </form>
 
