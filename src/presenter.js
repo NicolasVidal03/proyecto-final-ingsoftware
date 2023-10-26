@@ -27,6 +27,9 @@ let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio');
 let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico');
 let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico');
 
+prueba.setEstado("Terminado");
+prueba1.setEstado("No Terminado");
+prueba2.setEstado("No Terminado");
 
 
 const lista = new CatalogoKata();
@@ -212,6 +215,23 @@ buscar_kata_desc.addEventListener("submit", (event) => {
   event.preventDefault();
     //alert(buscadorDesc.value);  
     const listaBuscador = lista.buscarPorDescripcion(buscadorDesc.value);
+    if(listaBuscador.length != 0) {
+      catalogoCompleto.innerHTML = "";
+      listaBuscador.forEach(mostrarCatalogoKatas);
+    }
+    else {
+      alert("No hay katas con ese autor");
+    }
+});
+
+// buscar por estado
+const buscar_kata_estado = document.querySelector("#buscar-por-estado");
+const buscadorEstado = document.querySelector("#buscadorEstado");
+
+buscar_kata_estado.addEventListener("submit", (event) => {
+  event.preventDefault();
+    //alert(buscadorDesc.value);  
+    const listaBuscador = lista.buscarPorEstado(buscadorEstado.value);
     if(listaBuscador.length != 0) {
       catalogoCompleto.innerHTML = "";
       listaBuscador.forEach(mostrarCatalogoKatas);
