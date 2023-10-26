@@ -191,4 +191,8 @@ describe("Obtiene el nombre", () => {
         const kataPrueba = new Kata('Kata de prueba examen','SEBASTIAN','Para practicar','Basico');
         expect(kataPrueba.getEstado()).toEqual("No terminado");
     })
+    it("se hace refactoring del estado de una kata, se prueba con el estado Terminado", () => {
+        const kataPrueba = new Kata('Kata de prueba examen','SEBASTIAN','Para practicar','Basico',"Terminado");
+        expect(kataPrueba.getEstado()).toEqual("Terminado");
+    })
 });

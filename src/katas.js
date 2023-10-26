@@ -1,11 +1,11 @@
 export class Kata{
-    constructor(nombre, autor, descripcion, dificultad){
+    constructor(nombre, autor, descripcion, dificultad, estado="No terminado"){
         this._nombre = nombre;
         this._autor = autor;
         this._descripcion = descripcion;
         this._dificultad = dificultad;
         this._id = -1;
-        this.estado= "No terminado";
+        this._estado= estado;
     }
 
     getNombre(){
@@ -24,7 +24,7 @@ export class Kata{
         return this._id;
     }
     getEstado(){
-        return "No terminado";
+        return this._estado;
     }
 
     setNombre(nombre) {
