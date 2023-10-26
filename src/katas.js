@@ -131,4 +131,13 @@ export class CatalogoKata{
         }
         return coincidencias;
     }
+
+    buscarPorEstado(estado) {
+        let coincidencias = [];
+        coincidencias = this.listaKatas;
+        return coincidencias;
+    }
+
+
+
 }

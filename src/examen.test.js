@@ -28,6 +28,15 @@ describe("Obtiene el estado de la kata", () => {
         expect(kata.getEstado()).toEqual("No terminado");
     });
 
+    it("Deberia retornar el nombre kata1", () => {
+        const kata1 = new Kata("kata1", "jorge", "", "")
+        kata1.setEstado("Terminado");
+        const kata2 = new Kata("kata2", "patricio", "", "")
+        const lista = new CatalogoKata();
+        lista.agregarKata(kata1);
+        lista.agregarKata(kata2);
+        expect(lista.buscarPorEstado("Terminado")[0].getNombre()).toEqual("kata1");
+    });
 
 
 });
