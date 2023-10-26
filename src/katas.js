@@ -5,6 +5,7 @@ export class Kata{
         this._descripcion = descripcion;
         this._dificultad = dificultad;
         this._id = -1;
+        this._estado = "No terminado";
     }
 
     getNombre(){
