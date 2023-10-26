@@ -61,6 +61,7 @@ function mostrarCatalogoKatas(kata) {
   "<span>"+ kata.getDescripcion() + "</span>"+
   "<span>" + kata.getAutor() + "</span>" +
   "<span>" + kata.getDificultad  () + "</span>" +
+  "<span>" + kata.getEstado  () + "</span>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" + 
   "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
   "</div>";
