@@ -4,7 +4,7 @@ export class Kata{
         this._autor = autor;
         this._descripcion = descripcion;
         this._dificultad = dificultad;
-        this._estado = " ";
+        this._estado = "No Terminado";
         this._id = -1;
     }
 
