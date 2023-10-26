@@ -1,5 +1,5 @@
 import { Kata, CatalogoKata } from "./katas.js";
-import { arrayKatasConMismaDificultad, mostrarKatas } from "./buscarPorDificultad.js";
+import { arrayKatasConMismaDificultad } from "./buscarPorDificultad.js";
 
 const form_aniadirKata = document.querySelector("#aniadir-kata");
 const boton_aniadir = document.querySelector('#boton-aniadir');
@@ -28,7 +28,8 @@ let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico');
 let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico');
 
 
-let lista = new CatalogoKata();
+
+const lista = new CatalogoKata();
 lista.agregarKata(prueba);
 lista.agregarKata(prueba1);
 lista.agregarKata(prueba2);
@@ -44,11 +45,15 @@ lista.agregarKata(prueba11);
 
 
 
+
 //MOSTRAR KATAS
 const katas_disponibles = lista.getLista();
-katas_disponibles.forEach(mostrarKatas);
 
-function mostrarKatas(kata) {
+katas_disponibles.forEach(mostrarCatalogoKatas);
+
+
+function mostrarCatalogoKatas(kata) {
+  
   catalogoCompleto.innerHTML += "<div id=\"contenedor-kata\" data-id=\"" + kata.getId() + "\">" +
   "<h4>" + kata.getNombre() + "</h4>" +
   "<span>" + kata.getAutor() + "<span>" +
@@ -82,7 +87,7 @@ form_aniadirKata.addEventListener("submit", (event) => {
         aniadir_desc.value = "";
         aniadir_dif.value = "";
         catalogoCompleto.innerHTML = "";
-        lista.getLista().forEach(mostrarKatas); 
+        lista.getLista().forEach(mostrarCatalogoKatas); 
     }
     else {
         alert("Se debe ingresar obligatoriamente el nombre de la kata y su autor");
@@ -119,7 +124,7 @@ function editarKata(pos) {
     lista.getLista()[pos].setDificultad(document.querySelector("#editar-dificultad-kata").value);
     form_editarKata.classList.add('hide');
     catalogoCompleto.innerHTML = "";
-    lista.getLista().forEach(mostrarKatas); 
+    lista.getLista().forEach(mostrarCatalogoKatas); 
   });
 }
 
@@ -140,7 +145,7 @@ function eliminarKata(pos) {
 
   lista.eliminarKata(pos);
   catalogoCompleto.innerHTML = "";
-  lista.getLista().forEach(mostrarKatas); 
+  lista.getLista().forEach(mostrarCatalogoKatas); 
 }
 
 
@@ -154,7 +159,7 @@ buscar_kata_nombre.addEventListener("submit", (event) => {
     const listaBuscador = lista.buscarPorNombre(buscador.value);
     if(listaBuscador.length != 0) {
       catalogoCompleto.innerHTML = "";
-      listaBuscador.forEach(mostrarKatas);
+      listaBuscador.forEach(mostrarCatalogoKatas);
     }
     else {
       alert("No hay katas con ese nombre");
@@ -171,7 +176,9 @@ form_buscar_dificultad.addEventListener("change",(event) => {
   if(dificultad_value != ""){
     const listKatas = arrayKatasConMismaDificultad(lista,dificultad_value);
     if(listKatas.length > 0){
-      catalogoCompleto.innerHTML = "<div id=\"busqueda-dificultad\">" + mostrarKatas(listKatas) + "</div>";
+      catalogoCompleto.innerHTML = "";
+      listKatas.forEach(mostrarCatalogoKatas);
+      //catalogoCompleto.innerHTML = "<div id=\"busqueda-dificultad\">" + mostrarKatas(listKatas) + "</div>";
     }
     else{
       alert("No se han encontrado coincidencias!!!");
