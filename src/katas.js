@@ -95,5 +95,13 @@ export class CatalogoKata{
         return coincidencias;
     }
     
-
+    buscarPorAutor(nombreAutor){
+        for(let i = 0; i<this.listaKatas.length; i++)
+        {
+           if(this.listaKatas[i].getAutor() === nombreAutor){
+                return this.listaKatas[i];
+            }
+        }
+    return null;
+}
 }
