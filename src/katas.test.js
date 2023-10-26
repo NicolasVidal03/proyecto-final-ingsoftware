@@ -63,6 +63,11 @@ describe("Obtiene el nombre", () => {
         kata.setDificultad("avanzado");
         expect(kata.getDificultad()).toEqual("avanzado");
     });
+    it("debería cambiar el estado a Terminado", () => {
+        const kata = new Kata("kata1", "jorge", "descripcion", "Basico","No Terminado")
+        kata.setEstado("Terminado");
+        expect(kata.getEstado()).toEqual("Terminado");
+    });
 
     it("debería eliminar un elemento de la lista de katas", () => {
         const miCatalogo = new CatalogoKata();
