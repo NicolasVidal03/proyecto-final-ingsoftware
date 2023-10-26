@@ -13,7 +13,6 @@ const aniadir_autor = document.querySelector("#nombre-autor");
 const aniadir_desc = document.querySelector("#desc-kata");
 const aniadir_dif = document.querySelector("#dificultad-kata");
 
-
 let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado');
 let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico', 'Basico');
 let prueba2 = new Kata('kata 3', 'Cris', 'Descripcion Cris', 'Intermedio');
@@ -147,3 +146,7 @@ function eliminarKata(pos) {
   catalogoCompleto.innerHTML = "";
   lista.getLista().forEach(mostrarKatas); 
 }
+
+//BUSCAR KATAS
+
+//POR AUTOR
