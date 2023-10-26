@@ -243,7 +243,7 @@ buscar_kata_desc.addEventListener("submit", (event) => {
 });
 
 
-
+//-----------------EXAMEN-----------------
 //BUSCAR POR ESTADO
 const form_buscar_estado = document.querySelector("#buscar-por-estado");
 
@@ -251,10 +251,10 @@ form_buscar_estado.addEventListener("change",(event) => {
   event.preventDefault();
   const estado = document.querySelector("#busqueda-estado").value;
   if(estado != ""){
-    const catalogoKatas = lista.buscarPorEstado(estado);
-    if(catalogoKatas.length > 0){
+    const listaKatasEstado = lista.buscarPorEstado(estado);
+    if(listaKatasEstado.length > 0){
       catalogoCompleto.innerHTML = "";
-      catalogoKatas.forEach(mostrarCatalogoKatas);
+      listaKatasEstado.forEach(mostrarCatalogoKatas);
     }
     else{
       alert("No hay katas en estado " + estado);

@@ -45,7 +45,7 @@ export class Kata{
     return `<div>Nombre kata: ${this._nombre}, Autor: ${this._autor}</div>`;
     }
 
-
+    //EXAMEN
     getEstado() {
         return this._estado;
     }
@@ -132,6 +132,8 @@ export class CatalogoKata{
         return coincidencias;
     }
 
+
+    //EXAMEN
     buscarPorEstado(estado) {
         let coincidencias = [];
         for(let i = 0; i<this.listaKatas.length; i++)
