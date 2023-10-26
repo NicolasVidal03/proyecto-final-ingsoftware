@@ -129,6 +129,13 @@ export class CatalogoKata{
     }
 
     buscarPorEstado(estado){
-        return "kata1";
+        const coincidencias = [];
+        for(let i = 0; i<this.listaKatas.length; i++)
+        {
+            if(this.listaKatas[i].getEstado() === estado){
+                coincidencias.push(this.listaKatas[i]);
+            }
+        }
+        return coincidencias;
     }
 }

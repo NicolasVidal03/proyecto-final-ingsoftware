@@ -189,8 +189,15 @@ describe("Obtiene el nombre", () => {
     })
     it("Se deberia buscar kata por estado", () => {
         const catalogo = new CatalogoKata();
-        const kata1 = new Kata('kata1','autor1','Para practicar','Basico');
-        expect(catalogo.buscarPorEstado("Terminado")).toEqual("kata1");
+        const kata1 = new Kata('kata1', 'autor1', "", "");
+        const kata2 = new Kata('kata2', 'autor2', "", "");
+        const kata3 = new Kata('kata3', 'autor3', "", "");
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+        catalogo.agregarKata(kata3);
+        kata1.setEstado("Terminado");
+        expect(catalogo.buscarPorEstado("Terminado")[0].getEstado()).toEqual("Terminado");
+       
     }) 
     it("deberia devolver el estado", () => {
         const catalogo = new CatalogoKata();
