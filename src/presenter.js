@@ -12,6 +12,7 @@ const aniadir_nombre = document.querySelector("#nombre-kata");
 const aniadir_autor = document.querySelector("#nombre-autor");
 const aniadir_desc = document.querySelector("#desc-kata");
 const aniadir_dif = document.querySelector("#dificultad-kata");
+const aniadir_est = document.querySelector("#estado-kata");
 
 
 let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado','Terminado');
@@ -79,8 +80,9 @@ form_aniadirKata.addEventListener("submit", (event) => {
     const autor = aniadir_autor.value;
     const desc = aniadir_desc.value;
     const dif = aniadir_dif.value; 
+    const est = aniadir_est.value; 
     if(nombre && autor) {
-        const kata = new Kata(nombre, autor, desc, dif);
+        const kata = new Kata(nombre, autor, desc, dif,est);
         lista.agregarKata(kata);
         boton_aniadir.classList.remove('hide');
         form_aniadirKata.classList.add('hide');
@@ -88,6 +90,7 @@ form_aniadirKata.addEventListener("submit", (event) => {
         aniadir_autor.value = "";
         aniadir_desc.value = "";
         aniadir_dif.value = "";
+        aniadir_est.value = "";
         catalogoCompleto.innerHTML = "";
         lista.getLista().forEach(mostrarCatalogoKatas); 
     }
