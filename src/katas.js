@@ -99,10 +99,10 @@ export class CatalogoKata{
         const coincidencias = [];
         for(let i = 0; i<this.listaKatas.length; i++)
         {
-           if(this.listaKatas[i].getAutor() === nombreAutor){
-                return this.listaKatas[i];
+            if(this.listaKatas[i].getAutor() === nombreAutor){
+                coincidencias.push(this.listaKatas[i]);
             }
         }
-    return coincidencias;
-}
+        return coincidencias;
+    }
 }
