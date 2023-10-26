@@ -15,18 +15,18 @@ const aniadir_dif = document.querySelector("#dificultad-kata");
 const aniadir_est = document.querySelector("#estado-kata");
 
 
-let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado','Terminado');
-let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico', 'Basico','Terminado');
-let prueba2 = new Kata('kata 3', 'Cris', 'Descripcion Cris', 'Intermedio','No Terminado');
-let prueba3 = new Kata('kata 4', 'Sebas', 'Descripcion Sebas', 'Avanzado','Terminado');
-let prueba4 = new Kata('kata 5', 'Alex', 'Descripcion Alex', 'Intermedio','Terminado');
-let prueba5 = new Kata('kata 6', 'Laura', 'Descripcion Laura', 'Avanzado','No Terminado');
-let prueba6 = new Kata('kata 7', 'Juan', 'Descripcion Juan', 'Intermedio','Terminado');
-let prueba7 = new Kata('kata 8', 'María', 'Descripcion María', 'Avanzado','No Terminado');
-let prueba8 = new Kata('kata 9', 'Rodrigo', 'Descripcion Rodrigo', 'Basico','Terminado');
-let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio','NoTerminado');
-let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico','No Terminado');
-let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico','Terminado');
+let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado', 'Terminado');
+let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico', 'Basico', 'Terminado');
+let prueba2 = new Kata('kata 3', 'Cris', 'Descripcion Cris', 'Intermedio', 'No Terminado');
+let prueba3 = new Kata('kata 4', 'Sebas', 'Descripcion Sebas', 'Avanzado', 'Terminado');
+let prueba4 = new Kata('kata 5', 'Alex', 'Descripcion Alex', 'Intermedio', 'Terminado');
+let prueba5 = new Kata('kata 6', 'Laura', 'Descripcion Laura', 'Avanzado', 'No Terminado');
+let prueba6 = new Kata('kata 7', 'Juan', 'Descripcion Juan', 'Intermedio', 'Terminado');
+let prueba7 = new Kata('kata 8', 'María', 'Descripcion María', 'Avanzado', 'No Terminado');
+let prueba8 = new Kata('kata 9', 'Rodrigo', 'Descripcion Rodrigo', 'Basico', 'Terminado');
+let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio', 'NoTerminado');
+let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico', 'No Terminado');
+let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico', 'Terminado');
 
 
 
@@ -42,7 +42,7 @@ lista.agregarKata(prueba7);
 lista.agregarKata(prueba8);
 lista.agregarKata(prueba9);
 lista.agregarKata(prueba10);
-lista.agregarKata(prueba11);  
+lista.agregarKata(prueba11);
 
 
 
@@ -55,54 +55,54 @@ katas_disponibles.forEach(mostrarCatalogoKatas);
 
 function mostrarCatalogoKatas(kata) {
   catalogoCompleto.innerHTML += "<div id=\"contenedor-kata\"  data-id=\"" + kata.getId() + "\">" +
-  "<h4 >" + kata.getNombre() + "</h4>" +
-  "<span>"+ kata.getDescripcion() + "</span>"+
-  "<span>" + kata.getAutor() + "</span>" +
-  "<span>" + kata.getDificultad  () + "</span>" +
-  "<span>" + kata.getEstado  () + "</span>" +
-  "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" + 
-  "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
-  "</div>";
+    "<h4 >" + kata.getNombre() + "</h4>" +
+    "<span>" + kata.getDescripcion() + "</span>" +
+    "<span>" + kata.getAutor() + "</span>" +
+    "<span>" + kata.getDificultad() + "</span>" +
+    "<span>" + kata.getEstado() + "</span>" +
+    "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" +
+    "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
+    "</div>";
 }
 
 
 //AÑADIR KATA
 boton_aniadir.addEventListener("submit", (event) => {
   event.preventDefault();
-    form_aniadirKata.classList.remove('hide');
-    boton_aniadir.classList.add('hide');
-    form_editarKata.classList.add('hide');
+  form_aniadirKata.classList.remove('hide');
+  boton_aniadir.classList.add('hide');
+  form_editarKata.classList.add('hide');
 });
 
 form_aniadirKata.addEventListener("submit", (event) => {
   event.preventDefault();
-    const nombre = aniadir_nombre.value;
-    const autor = aniadir_autor.value;
-    const desc = aniadir_desc.value;
-    const dif = aniadir_dif.value; 
-    const est = aniadir_est.value; 
-    if(nombre && autor) {
-        const kata = new Kata(nombre, autor, desc, dif,est);
-        lista.agregarKata(kata);
-        boton_aniadir.classList.remove('hide');
-        form_aniadirKata.classList.add('hide');
-        aniadir_nombre.value = "";
-        aniadir_autor.value = "";
-        aniadir_desc.value = "";
-        aniadir_dif.value = "";
-        aniadir_est.value = "";
-        catalogoCompleto.innerHTML = "";
-        lista.getLista().forEach(mostrarCatalogoKatas); 
-    }
-    else {
-        alert("Se debe ingresar obligatoriamente el nombre de la kata y su autor");
-    }
+  const nombre = aniadir_nombre.value;
+  const autor = aniadir_autor.value;
+  const desc = aniadir_desc.value;
+  const dif = aniadir_dif.value;
+  const est = aniadir_est.value;
+  if (nombre && autor) {
+    const kata = new Kata(nombre, autor, desc, dif, est);
+    lista.agregarKata(kata);
+    boton_aniadir.classList.remove('hide');
+    form_aniadirKata.classList.add('hide');
+    aniadir_nombre.value = "";
+    aniadir_autor.value = "";
+    aniadir_desc.value = "";
+    aniadir_dif.value = "";
+    aniadir_est.value = "";
+    catalogoCompleto.innerHTML = "";
+    lista.getLista().forEach(mostrarCatalogoKatas);
+  }
+  else {
+    alert("Se debe ingresar obligatoriamente el nombre de la kata y su autor");
+  }
 });
 
 
 
 //EDITAR KATA
-catalogoCompleto.addEventListener("click", function(event) {
+catalogoCompleto.addEventListener("click", function (event) {
   if (event.target.classList.contains("editar-button")) {
     const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
     if (pos !== -1) {
@@ -131,12 +131,12 @@ function editarKata(pos) {
     lista.getLista()[pos].setEstado(document.querySelector("#editar-estado-kata").value);
     form_editarKata.classList.add('hide');
     catalogoCompleto.innerHTML = "";
-    lista.getLista().forEach(mostrarCatalogoKatas); 
+    lista.getLista().forEach(mostrarCatalogoKatas);
   });
 }
 
 //ELIMINAR KATA
-catalogoCompleto.addEventListener("click", function(event) {
+catalogoCompleto.addEventListener("click", function (event) {
   if (event.target.classList.contains("eliminar-button")) {
     const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
     if (pos !== -1) {
@@ -153,7 +153,7 @@ function eliminarKata(pos) {
 
   lista.eliminarKata(pos);
   catalogoCompleto.innerHTML = "";
-  lista.getLista().forEach(mostrarCatalogoKatas); 
+  lista.getLista().forEach(mostrarCatalogoKatas);
 }
 
 
@@ -163,35 +163,35 @@ const buscador = document.querySelector("#buscador");
 
 buscar_kata_nombre.addEventListener("submit", (event) => {
   event.preventDefault();
-    //alert(buscador.value);  
-    const listaBuscador = lista.buscarPorNombre(buscador.value);
-    if(listaBuscador.length != 0) {
-      catalogoCompleto.innerHTML = "";
-      listaBuscador.forEach(mostrarCatalogoKatas);
-    }
-    else {
-      alert("No hay katas con ese nombre");
-    }
+  //alert(buscador.value);  
+  const listaBuscador = lista.buscarPorNombre(buscador.value);
+  if (listaBuscador.length != 0) {
+    catalogoCompleto.innerHTML = "";
+    listaBuscador.forEach(mostrarCatalogoKatas);
+  }
+  else {
+    alert("No hay katas con ese nombre");
+  }
 });
 
 
 //Buscar por dificultad
 
-form_buscar_dificultad.addEventListener("change",(event) => {
+form_buscar_dificultad.addEventListener("change", (event) => {
   event.preventDefault();
   const dificultad_busq = document.querySelector("#busq");
   const dificultad_value = dificultad_busq.value;
-  if(dificultad_value != ""){
-    const listKatas = arrayKatasConMismaDificultad(lista,dificultad_value);
-    if(listKatas.length > 0){
+  if (dificultad_value != "") {
+    const listKatas = arrayKatasConMismaDificultad(lista, dificultad_value);
+    if (listKatas.length > 0) {
       catalogoCompleto.innerHTML = "";
       listKatas.forEach(mostrarCatalogoKatas);
       //catalogoCompleto.innerHTML = "<div id=\"busqueda-dificultad\">" + mostrarKatas(listKatas) + "</div>";
     }
-    else{
+    else {
       alert("No se han encontrado coincidencias!!!");
     }
-    
+
   }
 }
 )
@@ -201,15 +201,15 @@ const buscadorAutor = document.querySelector("#buscadorAutor");
 
 buscar_kata_autor.addEventListener("submit", (event) => {
   event.preventDefault();
-    //alert(buscadorAutor.value);  
-    const listaBuscador = lista.buscarPorAutor(buscadorAutor.value);
-    if(listaBuscador.length != 0) {
-      catalogoCompleto.innerHTML = "";
-      listaBuscador.forEach(mostrarCatalogoKatas);
-    }
-    else {
-      alert("No hay katas con ese autor");
-    }
+  //alert(buscadorAutor.value);  
+  const listaBuscador = lista.buscarPorAutor(buscadorAutor.value);
+  if (listaBuscador.length != 0) {
+    catalogoCompleto.innerHTML = "";
+    listaBuscador.forEach(mostrarCatalogoKatas);
+  }
+  else {
+    alert("No hay katas con ese autor");
+  }
 });
 
 const buscar_kata_desc = document.querySelector("#buscar-por-desc");
@@ -217,15 +217,15 @@ const buscadorDesc = document.querySelector("#buscadorDesc");
 
 buscar_kata_desc.addEventListener("submit", (event) => {
   event.preventDefault();
-    //alert(buscadorDesc.value);  
-    const listaBuscador = lista.buscarPorDescripcion(buscadorDesc.value);
-    if(listaBuscador.length != 0) {
-      catalogoCompleto.innerHTML = "";
-      listaBuscador.forEach(mostrarCatalogoKatas);
-    }
-    else {
-      alert("No hay katas con ese autor");
-    }
+  //alert(buscadorDesc.value);  
+  const listaBuscador = lista.buscarPorDescripcion(buscadorDesc.value);
+  if (listaBuscador.length != 0) {
+    catalogoCompleto.innerHTML = "";
+    listaBuscador.forEach(mostrarCatalogoKatas);
+  }
+  else {
+    alert("No hay katas con ese autor");
+  }
 });
 
 const buscar_kata_estado = document.querySelector("#buscar-por-estado");
@@ -233,12 +233,12 @@ const buscadorEst = document.querySelector("#buscadorEstado");
 
 buscar_kata_estado.addEventListener("change", (event) => {
   event.preventDefault();
-    const listaBuscador = lista.buscarPorEstado(buscadorEst.value);
-    if(listaBuscador.length != 0) {
-      catalogoCompleto.innerHTML = "";
-      listaBuscador.forEach(mostrarCatalogoKatas);
-    }
-    else {
-      alert("No hay katas con ese estado");
-    }
+  const listaBuscador = lista.buscarPorEstado(buscadorEst.value);
+  if (listaBuscador.length != 0) {
+    catalogoCompleto.innerHTML = "";
+    listaBuscador.forEach(mostrarCatalogoKatas);
+  }
+  else {
+    alert("No hay katas con ese estado");
+  }
 });

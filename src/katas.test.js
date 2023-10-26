@@ -13,18 +13,18 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata2", "dario", "", "")
         expect(kata.mostrar()).toEqual("<div>Nombre kata: kata2, Autor: dario</div>");
     });
-    it("deberia tener tamaño 0", ()=> {
+    it("deberia tener tamaño 0", () => {
         const miCatalogo = new CatalogoKata();
         expect(miCatalogo.listaKatas.length).toEqual(0);
     });
-    it("deberia tener tamaño 1 porque se pusheo una kata", ()=> {
+    it("deberia tener tamaño 1 porque se pusheo una kata", () => {
         const miCatalogo = new CatalogoKata();
         const miKata = new Kata('miKata', 'miAutor', "", "");
         miCatalogo.agregarKata(miKata);
         expect(miCatalogo.listaKatas.length).toBe(1);
         expect(miCatalogo.listaKatas[0]).toBe(miKata);
     });
-    it("deberia mostrar la lista de katas esperada", ()=> {
+    it("deberia mostrar la lista de katas esperada", () => {
         const miCatalogo = new CatalogoKata();
         const kata1 = new Kata('kata1', 'autor1', "", "");
         const kata2 = new Kata('kata2', 'autor2', "", "");
@@ -41,7 +41,7 @@ describe("Obtiene el nombre", () => {
         expect(kata.getNombre()).toEqual("prueba");
     });
     it("debería cambiar el autor de la kata a autor2", () => {
-        const kata = new Kata("kata1", "jorge", "", "","")
+        const kata = new Kata("kata1", "jorge", "", "", "")
         kata.setAutor("autor2");
         expect(kata.getAutor()).toEqual("autor2");
     });
@@ -64,7 +64,7 @@ describe("Obtiene el nombre", () => {
         expect(kata.getDificultad()).toEqual("avanzado");
     });
     it("debería cambiar el estado a Terminado", () => {
-        const kata = new Kata("kata1", "jorge", "descripcion", "Basico","No Terminado")
+        const kata = new Kata("kata1", "jorge", "descripcion", "Basico", "No Terminado")
         kata.setEstado("Terminado");
         expect(kata.getEstado()).toEqual("Terminado");
     });
@@ -84,15 +84,15 @@ describe("Obtiene el nombre", () => {
     it("debería devolver la representación en string de la kata", () => {
         // Crear una kata
         const kata = new Kata('kata1', 'autor1', 'descripcion', 'dificultad');
-    
+
         // Llamar a la función mostrar
         const resultado = kata.mostrar();
-    
+
         // Comprobar que el resultado es el esperado
         const esperado = '<div>Nombre kata: kata1, Autor: autor1</div>';
         expect(resultado).toEqual(esperado);
     });
-    
+
     it("debería retornar id -1", () => {
         const kata = new Kata("kata1", "jorge", "descripcion", "")
         expect(kata.getId()).toEqual(-1);
@@ -145,21 +145,21 @@ describe("Obtiene el nombre", () => {
         catalogo.agregarKata(kata3);
         expect(catalogo.buscarPorNombre('kata4')).toEqual([]);
     })
-    
-    
+
+
     it("debería devolver la representación en string del catálogo de katas", () => {
         // Crear algunas katas
         const kata1 = new Kata('kata1', 'autor1', 'descripcion', 'dificultad');
         const kata2 = new Kata('kata2', 'autor2', 'descripcion', 'dificultad');
-    
+
         // Crear un catálogo y agregar las katas
         const catalogo = new CatalogoKata();
         catalogo.agregarKata(kata1);
         catalogo.agregarKata(kata2);
-    
+
         // Llamar a la función mostrarCatalogoKatas
         const resultado = catalogo.mostrarCatalogoKatas();
-    
+
         // Comprobar que el resultado es el esperado
         const esperado = '<div>Nombre kata: kata1, Autor: autor1</div><div>Nombre kata: kata2, Autor: autor2</div>';
         expect(resultado).toEqual(esperado);
@@ -182,31 +182,31 @@ describe("Obtiene el nombre", () => {
     //Pruebas de buscar por descripcion
     it("deberia devolver el nombre de la kata buscada por la descripción", () => {
         const catalogo = new CatalogoKata();
-        const kata1 = new Kata('kata1','autor1','Para practicar','Basico');
+        const kata1 = new Kata('kata1', 'autor1', 'Para practicar', 'Basico');
         catalogo.agregarKata(kata1);
         expect(catalogo.buscarPorDescripcion('Para practicar')[0].getNombre()).toEqual('kata1');
     })
     //Pruebas básicas con estado
     it("deberia devolver null porque descripción no existe", () => {
         const catalogo = new CatalogoKata();
-        const kata1 = new Kata('kata1','autor1','Para practicar','Basico');
+        const kata1 = new Kata('kata1', 'autor1', 'Para practicar', 'Basico');
         catalogo.agregarKata(kata1);
         expect(catalogo.buscarPorDescripcion('Para practicar más')).toEqual([]);
     })
     it("debería obtener el estado", () => {
-        const kata = new Kata('kata1','autor1','Para practicar','Basico',"Terminado");
+        const kata = new Kata('kata1', 'autor1', 'Para practicar', 'Basico', "Terminado");
         expect(kata.getEstado()).toEqual("Terminado");
     });
     //Pruebas de buscar por estado
     it("deberia devolver el nombre de la kata buscada por el estado", () => {
         const catalogo = new CatalogoKata();
-        const kata1 = new Kata('kata1', 'autor1', "", "","Terminado");
+        const kata1 = new Kata('kata1', 'autor1', "", "", "Terminado");
         catalogo.agregarKata(kata1);
         expect(catalogo.buscarPorEstado('Terminado')[0].getNombre()).toEqual("kata1");
     })
     it("deberia devolver el nombre de la kata buscada por el estado", () => {
         const catalogo = new CatalogoKata();
-        const kata1 = new Kata('kata1', 'autor1', "", "","Terminado");
+        const kata1 = new Kata('kata1', 'autor1', "", "", "Terminado");
         catalogo.agregarKata(kata1);
         expect(catalogo.buscarPorEstado('No Terminado')).toEqual([]);
     })
