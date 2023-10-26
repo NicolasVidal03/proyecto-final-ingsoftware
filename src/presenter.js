@@ -125,6 +125,7 @@ function editarKata(pos) {
   document.querySelector("#editar-nombre-autor").value = lista.getLista()[pos].getAutor();
   document.querySelector("#editar-desc-kata").value = lista.getLista()[pos].getDescripcion();
   document.querySelector("#editar-dificultad-kata").value = lista.getLista()[pos].getDificultad();
+  document.querySelector("#editar-estado-kata").value = lista.getLista()[pos].getEstado();
 
   form_editarKata.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -132,6 +133,7 @@ function editarKata(pos) {
     lista.getLista()[pos].setAutor(document.querySelector("#editar-nombre-autor").value);
     lista.getLista()[pos].setDescripcion(document.querySelector("#editar-desc-kata").value);
     lista.getLista()[pos].setDificultad(document.querySelector("#editar-dificultad-kata").value);
+    lista.getLista()[pos].setEstado(document.querySelector("#editar-estado-kata").value);
     form_editarKata.classList.add('hide');
     catalogoCompleto.innerHTML = "";
     lista.getLista().forEach(mostrarCatalogoKatas); 
