@@ -125,4 +125,12 @@ export class CatalogoKata{
         }
         return coincidencias;
     }
+    mostrarEstadoKatas(){
+        let estadoKatas = "";
+        for(let i = 0; i<this.listaKatas.length; i++)
+        {
+            estadoKatas += this.listaKatas[i].mostrarEstadoKata() + "\n";
+        }
+        return estadoKatas;
+    }
 }

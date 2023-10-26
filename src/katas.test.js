@@ -203,4 +203,17 @@ describe("Obtiene el nombre", () => {
         const kataPrueba = new Kata('Kata de prueba examen','SEBASTIAN','Para practicar','Basico', "Terminado");
         expect(kataPrueba.mostrarEstadoKata()).toEqual("Estado Kata: Terminado");
     })
+    it("se muestra el estado muchas katas", () => {
+        const kataPrueba = new Kata('Kata de prueba examen','SEBASTIAN','Para practicar','Basico', "Terminado");
+        let prueba = new Kata('kata 1', 'Oswa','Descripcion Oswa','Intermedio')
+        let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico','Basico')
+        let prueba2 = new Kata('kata 3', 'Cris','Descripcion Cris','Intermedio')
+        //lista de katas
+        let lista = new CatalogoKata();
+        lista.agregarKata(prueba);
+        lista.agregarKata(prueba1);
+        lista.agregarKata(prueba2);
+        const result = "Estado Kata: No terminado\nEstado Kata: No terminado\nEstado Kata: No terminado\n"
+        expect(lista.mostrarEstadoKatas()).toEqual(result);
+    })
 });
