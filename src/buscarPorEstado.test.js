@@ -16,4 +16,17 @@ describe("Deberia devolver una instancia de la clase Kata con estado No terminad
         expect(result[0] instanceof Kata).toEqual(true);
         expect(result[0].getEstado()).toEqual("No terminado");
     });
+    it("en caso de no encontrar coincidencias, devuelve un array vacio", () => {
+        //katas
+        let prueba = new Kata('kata 2', 'Oswa','Descripcion Oswa','Intermedio')
+        let prueba1 = new Kata('kata 4', 'Nico', 'Descripcion Nico','Basico',"Terminado")
+        //lista de katas
+        let lista = new CatalogoKata();
+        lista.agregarKata(prueba);
+        lista.agregarKata(prueba1);
+
+        const result = lista.buscarPorEstado("Prueba");
+
+        expect(result).toEqual([]);
+    });
 })
