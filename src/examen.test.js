@@ -62,4 +62,11 @@ describe("Obtiene el estado de la kata", () => {
         expect(mensaje).toEqual("kata1 kata3");
     });
 
+    it("Deberia cambiar el estado de la kata a No terminado", () => {
+        const kata = new Kata("kata1", "jorge", "", "")
+        kata.setEstado("Terminado");
+        kata.setEstado("No terminado");
+        expect(kata.getEstado()).toEqual("No terminado");
+    });
+
 });
