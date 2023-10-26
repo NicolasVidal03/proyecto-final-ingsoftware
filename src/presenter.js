@@ -145,6 +145,7 @@ catalogoCompleto.addEventListener("click", function(event) {
   }
 });
 
+
 function eliminarKata(pos) {
   form_editarKata.classList.add('hide');
   form_aniadirKata.classList.add('hide');
