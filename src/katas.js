@@ -42,6 +42,12 @@ export class Kata{
     setId(id) {
         this._id = id;
     }
+    setEstado(estado){
+        this._estado= estado;
+    }
+
+
+
     mostrarEstadoKata(){
         let result = "Estado Kata: " + this._estado;
         return result;

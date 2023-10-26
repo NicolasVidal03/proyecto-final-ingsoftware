@@ -234,7 +234,7 @@ form_buscar_estado.addEventListener("change",(event) => {
     const listKatas = lista.buscarPorEstado("No terminado");
     if(listKatas.length > 0){
       catalogoCompleto.innerHTML = "";
-      catalogoCompleto.innerHTML = listKatas.forEach(lista.mostrarEstadoKatas());
+      listKatas.forEach(mostrarCatalogoKatas);
     }
     else{
       alert("No se han encontrado coincidencias!!!");

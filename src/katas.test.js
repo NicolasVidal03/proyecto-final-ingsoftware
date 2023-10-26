@@ -218,4 +218,10 @@ describe("Obtiene el nombre", () => {
         const result = "Estado Kata: No terminado\nEstado Kata: No terminado\nEstado Kata: No terminado\n"
         expect(lista.mostrarEstadoKatas()).toEqual(result);
     })
+    it("se puede cambiar el estado de una kata", () => {
+        const kataPrueba = new Kata('Kata de prueba examen','SEBASTIAN','Para practicar','Basico');
+        kataPrueba.setEstado("Terminado");
+        expect(kataPrueba.getEstado()).toEqual("Terminado");
+    })
+
 });
