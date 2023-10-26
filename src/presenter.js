@@ -14,18 +14,18 @@ const aniadir_desc = document.querySelector("#desc-kata");
 const aniadir_dif = document.querySelector("#dificultad-kata");
 
 
-let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado');
-let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico', 'Basico');
-let prueba2 = new Kata('kata 3', 'Cris', 'Descripcion Cris', 'Intermedio');
-let prueba3 = new Kata('kata 4', 'Sebas', 'Descripcion Sebas', 'Avanzado');
-let prueba4 = new Kata('kata 5', 'Alex', 'Descripcion Alex', 'Intermedio');
-let prueba5 = new Kata('kata 6', 'Laura', 'Descripcion Laura', 'Avanzado');
-let prueba6 = new Kata('kata 7', 'Juan', 'Descripcion Juan', 'Intermedio');
-let prueba7 = new Kata('kata 8', 'María', 'Descripcion María', 'Avanzado');
-let prueba8 = new Kata('kata 9', 'Rodrigo', 'Descripcion Rodrigo', 'Basico');
-let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio');
-let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico');
-let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico');
+let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado','Terminado');
+let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico', 'Basico','Terminado');
+let prueba2 = new Kata('kata 3', 'Cris', 'Descripcion Cris', 'Intermedio','No Terminado');
+let prueba3 = new Kata('kata 4', 'Sebas', 'Descripcion Sebas', 'Avanzado','Terminado');
+let prueba4 = new Kata('kata 5', 'Alex', 'Descripcion Alex', 'Intermedio','Terminado');
+let prueba5 = new Kata('kata 6', 'Laura', 'Descripcion Laura', 'Avanzado','No Terminado');
+let prueba6 = new Kata('kata 7', 'Juan', 'Descripcion Juan', 'Intermedio','Terminado');
+let prueba7 = new Kata('kata 8', 'María', 'Descripcion María', 'Avanzado','No Terminado');
+let prueba8 = new Kata('kata 9', 'Rodrigo', 'Descripcion Rodrigo', 'Basico','Terminado');
+let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio','NoTerminado');
+let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico','No Terminado');
+let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico','Terminado');
 
 
 
@@ -58,6 +58,7 @@ function mostrarCatalogoKatas(kata) {
   "<span>"+ kata.getDescripcion() + "</span>"+
   "<span>" + kata.getAutor() + "</span>" +
   "<span>" + kata.getDificultad  () + "</span>" +
+  "<span>" + kata.getEstado  () + "</span>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" + 
   "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
   "</div>";
@@ -220,3 +221,5 @@ buscar_kata_desc.addEventListener("submit", (event) => {
       alert("No hay katas con ese autor");
     }
 });
+
+
