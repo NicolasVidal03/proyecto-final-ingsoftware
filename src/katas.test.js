@@ -195,4 +195,12 @@ describe("Obtiene el nombre", () => {
         const kataPrueba = new Kata('Kata de prueba examen','SEBASTIAN','Para practicar','Basico',"Terminado");
         expect(kataPrueba.getEstado()).toEqual("Terminado");
     })
+    it("se muestra el estado de la kata, NO TERMINADO", () => {
+        const kataPrueba = new Kata('Kata de prueba examen','SEBASTIAN','Para practicar','Basico');
+        expect(kataPrueba.mostrarEstadoKata()).toEqual("Estado Kata: No terminado");
+    })
+    it("se muestra el estado de la kata, TERMINADO", () => {
+        const kataPrueba = new Kata('Kata de prueba examen','SEBASTIAN','Para practicar','Basico', "Terminado");
+        expect(kataPrueba.mostrarEstadoKata()).toEqual("Estado Kata: Terminado");
+    })
 });

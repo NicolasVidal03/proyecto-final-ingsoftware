@@ -42,6 +42,10 @@ export class Kata{
     setId(id) {
         this._id = id;
     }
+    mostrarEstadoKata(){
+        let result = "Estado Kata: " + this._estado;
+        return result;
+    }
 
     mostrar(){
 //        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
