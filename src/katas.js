@@ -47,11 +47,12 @@ export class Kata{
 
 
     getEstado() {
-        return "No terminado";
+        return this._estado;
     }
 
     setEstado(estado) {
         if(estado == "Terminado") {
+            this._estado = estado;
             return true;
         }
         return false;
