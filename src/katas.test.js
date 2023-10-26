@@ -169,6 +169,6 @@ describe("Obtiene el nombre", () => {
         const catalogo = new CatalogoKata();
         const kata1 = new Kata('kata1', 'autor1', "", "");
         catalogo.agregarKata(kata1);
-        expect(catalogo.buscarPorAutor('autor2')).toEqual(null);
+        expect(catalogo.buscarPorAutor('autor2')).toEqual([]);
     })    
 });
