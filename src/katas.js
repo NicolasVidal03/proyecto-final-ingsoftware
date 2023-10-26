@@ -46,6 +46,11 @@ export class Kata{
     }
 
 
+    getEstado() {
+        return "No terminado";
+    }
+
+
 }
 
 export class CatalogoKata{
