@@ -187,6 +187,8 @@ describe("Obtiene el nombre", () => {
         catalogo.agregarKata(kata1);
         expect(catalogo.buscarPorDescripcion('Para practicar más')).toEqual([]);
     })
+
+    //buscar por estado
     it("devuelve el estado de la kata, por defecto esta en No terminado", () => {
         const kataPrueba = new Kata('Kata de prueba examen','SEBASTIAN','Para practicar','Basico');
         expect(kataPrueba.getEstado()).toEqual("No terminado");

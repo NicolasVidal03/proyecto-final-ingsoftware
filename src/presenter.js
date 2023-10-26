@@ -220,3 +220,8 @@ buscar_kata_desc.addEventListener("submit", (event) => {
       alert("No hay katas con ese autor");
     }
 });
+
+
+
+
+
