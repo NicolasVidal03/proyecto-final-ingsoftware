@@ -163,7 +163,7 @@ describe("Obtiene el nombre", () => {
         const catalogo = new CatalogoKata();
         const kata1 = new Kata('kata1', 'autor1', "", "");
         catalogo.agregarKata(kata1);
-        expect(catalogo.buscarPorAutor('autor1').getNombre()).toEqual("kata1");
+        expect(catalogo.buscarPorAutor('autor1')[0].getNombre()).toEqual("kata1");
     })
     it("deberia devolver null porque el nombre del autor no existe", () => {
         const catalogo = new CatalogoKata();
