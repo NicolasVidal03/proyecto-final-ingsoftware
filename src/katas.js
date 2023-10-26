@@ -5,6 +5,7 @@ export class Kata{
         this._descripcion = descripcion;
         this._dificultad = dificultad;
         this._id = -1;
+        this.estado= "No terminado";
     }
 
     getNombre(){
@@ -21,6 +22,9 @@ export class Kata{
     }
     getId() {
         return this._id;
+    }
+    getEstado(){
+        return "No terminado";
     }
 
     setNombre(nombre) {
