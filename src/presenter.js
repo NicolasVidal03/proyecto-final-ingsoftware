@@ -56,9 +56,9 @@ function mostrarCatalogoKatas(kata) {
   
   catalogoCompleto.innerHTML += "<div id=\"contenedor-kata\"  data-id=\"" + kata.getId() + "\">" +
   "<h4 >" + kata.getNombre() + "</h4>" +
-  "<span>"+ kata.getDescripcion() + "<span>"+
-  "<span>" + kata.getAutor() + "<span>" +
-  "<span>" + kata.getDificultad  () + "<span>" +
+  "<span>"+ kata.getDescripcion() + "</span>"+
+  "<span>" + kata.getAutor() + "</span>" +
+  "<span>" + kata.getDificultad  () + "</span>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" + 
   "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
   "</div>";
