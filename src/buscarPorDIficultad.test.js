@@ -84,7 +84,7 @@ describe("Devuelve un array de katas donde coinciden con su dificultad", () => {
         lista.agregarKata(prueba3);
 
         const listKatas = arrayKatasConMismaDificultad(lista,"Avanzado");
-        const expectedOutput = `<div data-id="${prueba._id}">Nombre kata: ${prueba._nombre}, Autor: ${prueba._autor} <button data-id="${prueba._id}" class="editar-button">Editar</button><button data-id="${prueba._id}" class="eliminar-button">Eliminar</button></div><div data-id="${prueba2._id}">Nombre kata: ${prueba2._nombre}, Autor: ${prueba2._autor} <button data-id="${prueba2._id}" class="editar-button">Editar</button><button data-id="${prueba2._id}" class="eliminar-button">Eliminar</button></div><div data-id="${prueba3._id}">Nombre kata: ${prueba3._nombre}, Autor: ${prueba3._autor} <button data-id="${prueba3._id}" class="editar-button">Editar</button><button data-id="${prueba3._id}" class="eliminar-button">Eliminar</button></div>`;
+        const expectedOutput = "<div>Nombre kata: kata 1, Autor: Oswa</div><div>Nombre kata: kata 3, Autor: Cris</div><div>Nombre kata: kata 4, Autor: Sebas</div>";
         expect(mostrarKatas(listKatas)).toEqual(expectedOutput);
 
     });

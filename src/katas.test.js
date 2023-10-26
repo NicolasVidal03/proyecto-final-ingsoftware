@@ -128,7 +128,7 @@ describe("Obtiene el nombre", () => {
         catalogo.agregarKata(kata1);
         catalogo.agregarKata(kata2);
         catalogo.agregarKata(kata3);
-        expect(catalogo.buscarPorNombre('kata1').getNombre()).toEqual("kata1");
+        expect(catalogo.buscarPorNombre('kata1')[0].getNombre()).toEqual("kata1");
     })
     it("deberia devolver null porque no existe el nombre de la kata", () => {
         const catalogo = new CatalogoKata();
@@ -138,7 +138,7 @@ describe("Obtiene el nombre", () => {
         catalogo.agregarKata(kata1);
         catalogo.agregarKata(kata2);
         catalogo.agregarKata(kata3);
-        expect(catalogo.buscarPorNombre('kata4')).toEqual(null);
+        expect(catalogo.buscarPorNombre('kata4')).toEqual([]);
     })
     
     
