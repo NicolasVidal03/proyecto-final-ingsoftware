@@ -198,4 +198,9 @@ describe("Obtiene el nombre", () => {
         catalogo.agregarKata(kata1);
         expect(kata1.getEstado()).toEqual(" ");
     }) 
+    it("deberia poner el estado deseado", () => {
+        const kata1 = new Kata('kata1','autor1','Para practicar','Basico');
+        kata1.setEstado("Terminado"),
+        expect(kata1.getEstado()).toEqual("Terminado");
+    }) 
 });

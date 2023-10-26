@@ -42,6 +42,10 @@ export class Kata{
     setId(id) {
         this._id = id;
     }
+    setEstado(estado)
+    {
+        this._estado = estado;
+    }
 
     
 
