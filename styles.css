@@ -1,6 +1,8 @@
 * {
+    
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 
 .hide{
     display: none;
@@ -14,7 +16,7 @@ h1 {
 
 body{
     background: linear-gradient(90deg, rgb(13, 65, 65), rgb(22, 44, 59));
-    padding: 1.5rem 3rem 0 3rem;
+    padding: 1.5rem 0 0 0;
     
 }
 
@@ -118,4 +120,14 @@ select {
 
 #editar-kata input,select{
     margin-bottom: 1rem;
+}
+
+footer{
+    background-color: rgb(22, 44, 59);
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0 2rem 0;
+    margin: 1rem 0 0 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
 }
