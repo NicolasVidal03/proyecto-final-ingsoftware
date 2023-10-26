@@ -128,7 +128,7 @@ export class CatalogoKata{
         return coincidencias;
     }
 
-    buscarPorEstado(){
+    buscarPorEstado(estado){
         return "kata1";
     }
 }
