@@ -23,6 +23,9 @@ export class Kata{
     getId() {
         return this._id;
     }
+    getEstado(){
+        return this._estado;
+    }
 
     setNombre(nombre) {
         this._nombre = nombre;
@@ -39,6 +42,8 @@ export class Kata{
     setId(id) {
         this._id = id;
     }
+
+    
 
     mostrar(){
 //        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
