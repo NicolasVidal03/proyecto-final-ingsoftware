@@ -233,7 +233,7 @@ form_buscar_estado.addEventListener("change",(event) => {
   const estado_busq = document.querySelector("#est");
   const estado_value = estado_busq.value;
   if(estado_value != ""){
-    const listKatas = lista.buscarPorEstado("No terminado");
+    const listKatas = lista.buscarPorEstado(estado_value);
     if(listKatas.length > 0){
       catalogoCompleto.innerHTML = "";
       listKatas.forEach(mostrarCatalogoKatas);
