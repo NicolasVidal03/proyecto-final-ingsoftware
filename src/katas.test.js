@@ -187,4 +187,9 @@ describe("Obtiene el nombre", () => {
         catalogo.agregarKata(kata1);
         expect(catalogo.buscarPorDescripcion('Para practicar más')).toEqual([]);
     })
+    it("Se deberia buscar kata por estado", () => {
+        const catalogo = new CatalogoKata();
+        const kata1 = new Kata('kata1','autor1','Para practicar','Basico');
+        expect(catalogo.buscarPorEstado()).toEqual("kata1");
+    }) 
 });
