@@ -222,4 +222,17 @@ buscar_kata_desc.addEventListener("submit", (event) => {
     }
 });
 
+const buscar_kata_estado = document.querySelector("#buscar-por-estado");
+const buscadorEst = document.querySelector("#buscadorEstado");
 
+buscar_kata_estado.addEventListener("change", (event) => {
+  event.preventDefault();
+    const listaBuscador = lista.buscarPorEstado(buscadorEst.value);
+    if(listaBuscador.length != 0) {
+      catalogoCompleto.innerHTML = "";
+      listaBuscador.forEach(mostrarCatalogoKatas);
+    }
+    else {
+      alert("No hay katas con ese estado");
+    }
+});
