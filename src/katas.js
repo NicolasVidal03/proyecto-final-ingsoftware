@@ -1,5 +1,5 @@
-export class Kata{
-    constructor(nombre, autor, descripcion, dificultad,estado){
+export class Kata {
+    constructor(nombre, autor, descripcion, dificultad, estado) {
         this._nombre = nombre;
         this._autor = autor;
         this._descripcion = descripcion;
@@ -8,10 +8,10 @@ export class Kata{
         this._estado = estado;
     }
 
-    getNombre(){
+    getNombre() {
         return this._nombre;
     }
-    getAutor(){
+    getAutor() {
         return this._autor;
     }
     getDescripcion() {
@@ -46,23 +46,21 @@ export class Kata{
         this._estado = estado;
     }
 
-    mostrar(){
-//        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
-    return `<div>Nombre kata: ${this._nombre}, Autor: ${this._autor}</div>`;
+    mostrar() {
+        //        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
+        return `<div>Nombre kata: ${this._nombre}, Autor: ${this._autor}</div>`;
     }
 
 
 }
 
-export class CatalogoKata{
-    constructor()
-    {
+export class CatalogoKata {
+    constructor() {
         this.listaKatas = [];
         this.cont = 0;
     }
 
-    agregarKata(kata)
-    {
+    agregarKata(kata) {
         kata.setId(this.cont++);
         this.listaKatas.push(kata);
     }
@@ -71,31 +69,28 @@ export class CatalogoKata{
         this.listaKatas.splice(pos, 1);
     }
 
-    getLista(){
+    getLista() {
         return this.listaKatas;
     }
 
-    mostrarCatalogoKatas(){
+    mostrarCatalogoKatas() {
         let mensaje = "";
-        for(let i = 0; i<this.listaKatas.length; i++)
-        {
-            mensaje+=this.listaKatas[i].mostrar();
+        for (let i = 0; i < this.listaKatas.length; i++) {
+            mensaje += this.listaKatas[i].mostrar();
         }
         return mensaje;
     }
 
     buscarPorId(id) {
-        for(let i = 0; i< this.listaKatas.length; i++)
-        {
-            if(this.listaKatas[i].getId() == id)
-            return this.listaKatas[i];
+        for (let i = 0; i < this.listaKatas.length; i++) {
+            if (this.listaKatas[i].getId() == id)
+                return this.listaKatas[i];
         }
     }
-    buscarPorNombre(nombreKata){
+    buscarPorNombre(nombreKata) {
         const coincidencias = [];
-        for(let i = 0; i<this.listaKatas.length; i++)
-        {
-            if(this.listaKatas[i].getNombre().toLowerCase() === nombreKata.toLowerCase()){
+        for (let i = 0; i < this.listaKatas.length; i++) {
+            if (this.listaKatas[i].getNombre().toLowerCase() === nombreKata.toLowerCase()) {
 
                 coincidencias.push(this.listaKatas[i]);
             }
@@ -103,33 +98,30 @@ export class CatalogoKata{
         return coincidencias;
     }
 
-    buscarPorAutor(nombreAutor){
+    buscarPorAutor(nombreAutor) {
         const coincidencias = [];
-        for(let i = 0; i<this.listaKatas.length; i++)
-        {
-            if(this.listaKatas[i].getAutor() === nombreAutor){
+        for (let i = 0; i < this.listaKatas.length; i++) {
+            if (this.listaKatas[i].getAutor() === nombreAutor) {
                 coincidencias.push(this.listaKatas[i]);
             }
         }
         return coincidencias;
     }
 
-    buscarPorDescripcion(descripcion){
+    buscarPorDescripcion(descripcion) {
         const coincidencias = [];
-        for(let i = 0; i<this.listaKatas.length; i++)
-        {
-            if(this.listaKatas[i].getDescripcion() === descripcion){
+        for (let i = 0; i < this.listaKatas.length; i++) {
+            if (this.listaKatas[i].getDescripcion() === descripcion) {
                 coincidencias.push(this.listaKatas[i]);
             }
         }
         return coincidencias;
     }
 
-    buscarPorEstado(estado){
+    buscarPorEstado(estado) {
         const coincidencias = [];
-        for(let i = 0; i<this.listaKatas.length; i++)
-        {
-            if(this.listaKatas[i].getEstado() === estado){
+        for (let i = 0; i < this.listaKatas.length; i++) {
+            if (this.listaKatas[i].getEstado() === estado) {
                 coincidencias.push(this.listaKatas[i]);
             }
         }
