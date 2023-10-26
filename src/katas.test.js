@@ -192,4 +192,10 @@ describe("Obtiene el nombre", () => {
         const kata1 = new Kata('kata1','autor1','Para practicar','Basico');
         expect(catalogo.buscarPorEstado()).toEqual("kata1");
     }) 
+    it("deberia devolver el estado", () => {
+        const catalogo = new CatalogoKata();
+        const kata1 = new Kata('kata1','autor1','Para practicar','Basico');
+        catalogo.agregarKata(kata1);
+        expect(kata1.getEstado()).toEqual(" ");
+    }) 
 });
