@@ -9,8 +9,13 @@ describe("Obtiene el estado de la kata", () => {
     it("deberia mostrar que el cambio se realizo", () => {
         const kata = new Kata("kata1", "jorge", "", "")
         expect(kata.setEstado("Terminado")).toEqual(true);
-        });
+    });
     
+    it("deberia mostrar que el cambio no se realizp porque se ingreso un valor invalido", () => {
+        const kata = new Kata("kata1", "jorge", "", "")
+        expect(kata.setEstado("acabado")).toEqual(false);
+    });
+
 
 
 
