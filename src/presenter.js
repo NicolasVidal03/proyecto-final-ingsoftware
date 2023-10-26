@@ -28,6 +28,14 @@ let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico');
 let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico');
 
 
+prueba2.setEstado("Terminado");
+prueba3.setEstado("Terminado");
+prueba5.setEstado("Terminado");
+prueba8.setEstado("Terminado");
+prueba10.setEstado("Terminado");
+prueba11.setEstado("Terminado");
+
+
 
 const lista = new CatalogoKata();
 lista.agregarKata(prueba);
@@ -57,7 +65,8 @@ function mostrarCatalogoKatas(kata) {
   "<h4 >" + kata.getNombre() + "</h4>" +
   "<span>"+ kata.getDescripcion() + "</span>"+
   "<span>" + kata.getAutor() + "</span>" +
-  "<span>" + kata.getDificultad  () + "</span>" +
+  "<span>" + kata.getDificultad() + "</span>" +
+  "<span>" + kata.getEstado() + "</span>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" + 
   "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
   "</div>";
