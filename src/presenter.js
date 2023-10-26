@@ -7,6 +7,8 @@ const catalogoCompleto = document.querySelector("#resultado-div");
 const form_editarKata = document.querySelector("#editar-kata");
 
 const form_buscar_dificultad = document.querySelector("#buscar");
+const form_buscar_estado = document.querySelector("#buscarEstado");
+
 
 const aniadir_nombre = document.querySelector("#nombre-kata");
 const aniadir_autor = document.querySelector("#nombre-autor");
@@ -14,18 +16,18 @@ const aniadir_desc = document.querySelector("#desc-kata");
 const aniadir_dif = document.querySelector("#dificultad-kata");
 
 
-let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado');
-let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico', 'Basico');
+let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado',"Terminado");
+let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico', 'Basico', "Terminado");
 let prueba2 = new Kata('kata 3', 'Cris', 'Descripcion Cris', 'Intermedio');
 let prueba3 = new Kata('kata 4', 'Sebas', 'Descripcion Sebas', 'Avanzado');
 let prueba4 = new Kata('kata 5', 'Alex', 'Descripcion Alex', 'Intermedio');
 let prueba5 = new Kata('kata 6', 'Laura', 'Descripcion Laura', 'Avanzado');
 let prueba6 = new Kata('kata 7', 'Juan', 'Descripcion Juan', 'Intermedio');
-let prueba7 = new Kata('kata 8', 'María', 'Descripcion María', 'Avanzado');
+let prueba7 = new Kata('kata 8', 'María', 'Descripcion María', 'Avanzado', "Terminado");
 let prueba8 = new Kata('kata 9', 'Rodrigo', 'Descripcion Rodrigo', 'Basico');
-let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio');
+let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio',"Terminado");
 let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico');
-let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico');
+let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico', "Terminado");
 
 
 
@@ -222,6 +224,24 @@ buscar_kata_desc.addEventListener("submit", (event) => {
 });
 
 
+//busc estado
 
+form_buscar_estado.addEventListener("change",(event) => {
+  event.preventDefault();
+  const estado_busq = document.querySelector("#est");
+  const estado_value = estado_busq.value;
+  if(estado_value != ""){
+    const listKatas = lista.buscarPorEstado("No terminado");
+    if(listKatas.length > 0){
+      catalogoCompleto.innerHTML = "";
+      catalogoCompleto.innerHTML = listKatas.forEach(lista.mostrarEstadoKatas());
+    }
+    else{
+      alert("No se han encontrado coincidencias!!!");
+    }
+    
+  }
+}
+)
 
 
