@@ -159,6 +159,8 @@ describe("Obtiene el nombre", () => {
         const esperado = '<div>Nombre kata: kata1, Autor: autor1</div><div>Nombre kata: kata2, Autor: autor2</div>';
         expect(resultado).toEqual(esperado);
     });
+
+    //Pruebas de buscar por autor
     it("deberia devolver el nombre de la kata buscada por el nombre del autor", () => {
         const catalogo = new CatalogoKata();
         const kata1 = new Kata('kata1', 'autor1', "", "");
@@ -170,5 +172,19 @@ describe("Obtiene el nombre", () => {
         const kata1 = new Kata('kata1', 'autor1', "", "");
         catalogo.agregarKata(kata1);
         expect(catalogo.buscarPorAutor('autor2')).toEqual([]);
-    })    
+    })
+
+    //Pruebas de buscar por descripcion
+    it("deberia devolver el nombre de la kata buscada por la descripción", () => {
+        const catalogo = new CatalogoKata();
+        const kata1 = new Kata('kata1','autor1','Para practicar','Basico');
+        catalogo.agregarKata(kata1);
+        expect(catalogo.buscarPorDescripcion('Para practicar')[0].getNombre()).toEqual('kata1');
+    })
+    it("deberia devolver null porque descripción no existe", () => {
+        const catalogo = new CatalogoKata();
+        const kata1 = new Kata('kata1','autor1','Para practicar','Basico');
+        catalogo.agregarKata(kata1);
+        expect(catalogo.buscarPorDescripcion('Para practicar más')).toEqual([]);
+    })
 });

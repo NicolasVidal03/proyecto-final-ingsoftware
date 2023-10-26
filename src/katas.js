@@ -106,4 +106,15 @@ export class CatalogoKata{
         }
         return coincidencias;
     }
+
+    buscarPorDescripcion(descripcion){
+        const coincidencias = [];
+        for(let i = 0; i<this.listaKatas.length; i++)
+        {
+            if(this.listaKatas[i].getDescripcion() === descripcion){
+                coincidencias.push(this.listaKatas[i]);
+            }
+        }
+        return coincidencias;
+    }
 }
