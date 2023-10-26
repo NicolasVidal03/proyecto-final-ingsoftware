@@ -88,7 +88,8 @@ export class CatalogoKata{
         const coincidencias = [];
         for(let i = 0; i<this.listaKatas.length; i++)
         {
-            if(this.listaKatas[i].getNombre() === nombreKata){
+            if(this.listaKatas[i].getNombre().toLowerCase() === nombreKata.toLowerCase()){
+
                 coincidencias.push(this.listaKatas[i]);
             }
         }
