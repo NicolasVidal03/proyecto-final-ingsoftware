@@ -41,7 +41,7 @@ describe("Obtiene el nombre", () => {
         expect(kata.getNombre()).toEqual("prueba");
     });
     it("debería cambiar el autor de la kata a autor2", () => {
-        const kata = new Kata("kata1", "jorge", "", "")
+        const kata = new Kata("kata1", "jorge", "", "","")
         kata.setAutor("autor2");
         expect(kata.getAutor()).toEqual("autor2");
     });
@@ -187,4 +187,8 @@ describe("Obtiene el nombre", () => {
         catalogo.agregarKata(kata1);
         expect(catalogo.buscarPorDescripcion('Para practicar más')).toEqual([]);
     })
+    it("debería obtener el estado", () => {
+        const kata = new Kata('kata1','autor1','Para practicar','Basico',"Terminado");
+        expect(kata.getEstado()).toEqual("Terminado");
+    });
 });
