@@ -50,6 +50,10 @@ export class Kata{
         return "No terminado";
     }
 
+    setEstado(estado) {
+        return true;
+    }
+
 
 }
 
