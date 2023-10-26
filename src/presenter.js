@@ -116,24 +116,34 @@ catalogoCompleto.addEventListener("click", function(event) {
   }
 });
 
-function editarKata(pos) {
-  form_editarKata.classList.remove('hide');
-  form_aniadirKata.classList.add('hide');
-  boton_aniadir.classList.remove('hide');
 
+function ponerValorActualInputsEditar(pos) {
   document.querySelector("#editar-nombre-kata").value = lista.getLista()[pos].getNombre();
   document.querySelector("#editar-nombre-autor").value = lista.getLista()[pos].getAutor();
   document.querySelector("#editar-desc-kata").value = lista.getLista()[pos].getDescripcion();
   document.querySelector("#editar-dificultad-kata").value = lista.getLista()[pos].getDificultad();
   document.querySelector("#editar-estado-kata").value = lista.getLista()[pos].getEstado();
+}
+
+function editarValoresKata(pos) {
+  lista.getLista()[pos].setNombre(document.querySelector("#editar-nombre-kata").value);
+  lista.getLista()[pos].setAutor(document.querySelector("#editar-nombre-autor").value);
+  lista.getLista()[pos].setDescripcion(document.querySelector("#editar-desc-kata").value);
+  lista.getLista()[pos].setDificultad(document.querySelector("#editar-dificultad-kata").value);
+  lista.getLista()[pos].setEstado(document.querySelector("#editar-estado-kata").value);
+}
+
+
+function editarKata(pos) {
+  form_editarKata.classList.remove('hide');
+  form_aniadirKata.classList.add('hide');
+  boton_aniadir.classList.remove('hide');
+
+  ponerValorActualInputsEditar(pos);
 
   form_editarKata.addEventListener("submit", (event) => {
     event.preventDefault();
-    lista.getLista()[pos].setNombre(document.querySelector("#editar-nombre-kata").value);
-    lista.getLista()[pos].setAutor(document.querySelector("#editar-nombre-autor").value);
-    lista.getLista()[pos].setDescripcion(document.querySelector("#editar-desc-kata").value);
-    lista.getLista()[pos].setDificultad(document.querySelector("#editar-dificultad-kata").value);
-    lista.getLista()[pos].setEstado(document.querySelector("#editar-estado-kata").value);
+    editarValoresKata(pos);
     form_editarKata.classList.add('hide');
     catalogoCompleto.innerHTML = "";
     lista.getLista().forEach(mostrarCatalogoKatas); 
