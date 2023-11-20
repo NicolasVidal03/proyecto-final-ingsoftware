@@ -182,7 +182,7 @@ form_buscar_dificultad.addEventListener("change",(event) => {
   div_detalle_kata.classList.add('hide');
   const dificultad_busq = document.querySelector("#busq");
   const dificultad_value = dificultad_busq.value;
-  if(dificultad_value != ""){
+  if(dificultad_value != "Todos"){
     const listKatas = arrayKatasConMismaDificultad(lista,dificultad_value);
     if(listKatas.length > 0){
       catalogoCompleto.innerHTML = "";
@@ -192,6 +192,10 @@ form_buscar_dificultad.addEventListener("change",(event) => {
       alert("No se han encontrado coincidencias!!!");
     }
     
+  }
+  else{
+    catalogoCompleto.innerHTML = "";
+    katas_disponibles.forEach(mostrarCatalogoKatas);
   }
 }
 )
