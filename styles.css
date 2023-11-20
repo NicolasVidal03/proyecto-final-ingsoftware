@@ -131,3 +131,67 @@ footer{
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 
 }
+
+
+
+#caja-detalle {
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+    padding: 1rem 0 1rem 0;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    background-color: rgba(27, 94, 94, 0.63);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 40px;
+    width: 65%;
+    height: 12rem;
+    
+}
+
+#detalle-nom-desc {
+    height: 100%;
+
+}
+
+#detalle-nombre {
+    font-size: xx-large;
+    font-weight: 700;
+}
+#detalle-autor {
+    font-size: x-large;
+    font-weight: 500;
+}
+#detalle-desc {
+    max-width: 25rem;
+    font-weight: 200;
+    text-align: start;
+    background-color: rgba(27, 71, 71, 0.63);
+    box-shadow: 0 0 20px rgba(27, 71, 71);
+    border-radius: 20px;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+}
+#detalle-calificacion {
+    font-size: xxx-large;
+    font-weight: 700;
+}
+
+#detalle-info {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items:end;
+    background-color: rgba(27, 71, 71, 0.63);
+    box-shadow: 0 0 20px rgba(27, 71, 71);
+    border-radius: 20px;
+    width: 18rem;
+    justify-content: space-between;
+    padding: 0.3rem 1rem 0.3rem 1rem;
+}
+
+#detalle-desc {
+    position:absolute;
+
+}
+
+
+

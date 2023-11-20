@@ -56,6 +56,6 @@ describe("Sumador", () => {
     it("Buscar kata por dificultad", () => {
       cy.visit("/");
       cy.get("#busq").select("Avanzado");
-      cy.get("#resultado-div").should("contain", "Avanzado");
+      cy.get("#resultado-div").should("contain", "Avanzadods");
     });
 });

@@ -229,8 +229,25 @@ catalogoCompleto.addEventListener("click", function(event) {
     const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
     if (pos !== -1) {
       alert(pos);
-      
+      verDetalle(pos);
     }
   }
 });
+
+const div_detalle_kata = document.querySelector("#detalle-kata");
+
+function verDetalle(posDetalle) {
+  div_detalle_kata.classList.remove('hide');
+
+  document.querySelector("#detalle-nombre").innerHTML = lista.getLista()[posDetalle].getNombre();
+  document.querySelector("#detalle-autor").innerHTML = lista.getLista()[posDetalle].getAutor();
+  document.querySelector("#detalle-desc").innerHTML = lista.getLista()[posDetalle].getDescripcion();
+  //form_aniadirKata.classList.add('hide');
+  //boton_aniadir.classList.remove('hide');
+
+  //document.querySelector("#editar-nombre-kata").value = lista.getLista()[posKataEditar].getNombre();
+  //document.querySelector("#editar-nombre-autor").value = lista.getLista()[posKataEditar].getAutor();
+  //document.querySelector("#editar-desc-kata").value = lista.getLista()[posKataEditar].getDescripcion();
+  //document.querySelector("#editar-dificultad-kata").value = lista.getLista()[posKataEditar].getDificultad();
+}
 
