@@ -209,4 +209,9 @@ describe("Obtiene el nombre", () => {
         kata.setPuntuacion(200);
         expect(kata.getPuntuacion()).toEqual(-1);
     });
+    it("si se pone una puntuacion menor a 0, devuelve -1, porque la minima nota puede ser 0", () => {
+        const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "", 10)
+        kata.setPuntuacion(-100);
+        expect(kata.getPuntuacion()).toEqual(-1);
+    });
 });

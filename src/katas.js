@@ -47,7 +47,7 @@ export class Kata{
         this._id = id;
     }
     setPuntuacion(n){
-        if(n > 100)
+        if(n > 100 || n < 0)
         {
             n = -1;
         }
