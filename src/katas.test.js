@@ -204,4 +204,9 @@ describe("Obtiene el nombre", () => {
         kata.setPuntuacion(80);
         expect(kata.getPuntuacion()).toEqual(80);
     });
+    it("si se pone una puntuacion mayor a 100, devuelve -1, porque la mayor nota puede ser 100", () => {
+        const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "", 10)
+        kata.setPuntuacion(200);
+        expect(kata.getPuntuacion()).toEqual(-1);
+    });
 });
