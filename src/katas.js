@@ -16,6 +16,9 @@ export class Kata{
     getDescripcion() {
         return this._descripcion;
     }
+    getDescCorta() {
+        return this._descripcion.slice(0, 16) + "...";
+    }
     getDificultad() {
         return this._dificultad;
     }

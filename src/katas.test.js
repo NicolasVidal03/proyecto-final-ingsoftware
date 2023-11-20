@@ -187,4 +187,13 @@ describe("Obtiene el nombre", () => {
         catalogo.agregarKata(kata1);
         expect(catalogo.buscarPorDescripcion('Para practicar más')).toEqual([]);
     })
+    it("debería devolver la descripcion corta", () => {
+        const kata = new Kata("kata1", "jorge", "Descripcion corta de Jorge", "")
+        expect(kata.getDescCorta()).toEqual("Descripcion cort...");
+    });
+    it("debería devolver la nueva descripcion corta", () => {
+        const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "")
+        expect(kata.getDescCorta()).toEqual("Descripcion de p...");
+    });
+
 });

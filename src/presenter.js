@@ -44,6 +44,8 @@ lista.agregarKata(prueba10);
 lista.agregarKata(prueba11);  
 
 
+let contenedor_kata_div = document.querySelectorAll("#contenedor-kata");
+
 
 
 //MOSTRAR KATAS
@@ -57,9 +59,10 @@ function mostrarCatalogoKatas(kata) {
   "<h4 >" + kata.getNombre() + "</h4>" +
   "<span>"+ kata.getDescripcion() + "</span>"+
   "<span>" + kata.getAutor() + "</span>" +
-  "<span>" + kata.getDificultad  () + "</span>" +
+  "<span>" + kata.getDificultad() + "</span>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" + 
   "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
+  "<button data-id=\"" + kata.getId() + "\" class=\"detalle-button\">Detalle</button>" +
   "</div>";
 }
 
@@ -102,9 +105,9 @@ let posKataEditar = -1;
 catalogoCompleto.addEventListener("click", function(event) {
   if (event.target.classList.contains("editar-button")) {
     posKataEditar = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
-    alert(event.target.getAttribute("data-id"));
     if (posKataEditar !== -1) {
       editarKata();
+      //contenedor_kata_div = document.querySelectorAll("#contenedor-kata");
     }
   }
 });
@@ -137,6 +140,7 @@ catalogoCompleto.addEventListener("click", function(event) {
     const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
     if (pos !== -1) {
       eliminarKata(pos);
+      //contenedor_kata_div = document.querySelectorAll("#contenedor-kata");
     }
   }
 });
@@ -222,3 +226,5 @@ buscar_kata_desc.addEventListener("submit", (event) => {
       alert("No hay katas con ese autor");
     }
 });
+
+
