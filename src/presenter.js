@@ -73,6 +73,7 @@ boton_aniadir.addEventListener("submit", (event) => {
     form_aniadirKata.classList.remove('hide');
     boton_aniadir.classList.add('hide');
     form_editarKata.classList.add('hide');
+    div_detalle_kata.classList.add('hide');
 });
 
 form_aniadirKata.addEventListener("submit", (event) => {
@@ -115,6 +116,7 @@ function editarKata() {
   form_editarKata.classList.remove('hide');
   form_aniadirKata.classList.add('hide');
   boton_aniadir.classList.remove('hide');
+  div_detalle_kata.classList.add('hide');
 
   document.querySelector("#editar-nombre-kata").value = lista.getLista()[posKataEditar].getNombre();
   document.querySelector("#editar-nombre-autor").value = lista.getLista()[posKataEditar].getAutor();
@@ -147,6 +149,7 @@ function eliminarKata(pos) {
   form_editarKata.classList.add('hide');
   form_aniadirKata.classList.add('hide');
   boton_aniadir.classList.remove('hide');
+  div_detalle_kata.classList.add('hide');
 
   lista.eliminarKata(pos);
   catalogoCompleto.innerHTML = "";
@@ -160,6 +163,7 @@ const buscador = document.querySelector("#buscador");
 
 buscar_kata_nombre.addEventListener("submit", (event) => {
   event.preventDefault();
+  div_detalle_kata.classList.add('hide');
     const listaBuscador = lista.buscarPorNombre(buscador.value);
     if(listaBuscador.length != 0) {
       catalogoCompleto.innerHTML = "";
@@ -175,6 +179,7 @@ buscar_kata_nombre.addEventListener("submit", (event) => {
 
 form_buscar_dificultad.addEventListener("change",(event) => {
   event.preventDefault();
+  div_detalle_kata.classList.add('hide');
   const dificultad_busq = document.querySelector("#busq");
   const dificultad_value = dificultad_busq.value;
   if(dificultad_value != ""){
@@ -196,6 +201,7 @@ const buscadorAutor = document.querySelector("#buscadorAutor");
 
 buscar_kata_autor.addEventListener("submit", (event) => {
   event.preventDefault(); 
+  div_detalle_kata.classList.add('hide');
     const listaBuscador = lista.buscarPorAutor(buscadorAutor.value);
     if(listaBuscador.length != 0) {
       catalogoCompleto.innerHTML = "";
@@ -211,6 +217,7 @@ const buscadorDesc = document.querySelector("#buscadorDesc");
 
 buscar_kata_desc.addEventListener("submit", (event) => {
   event.preventDefault();
+  div_detalle_kata.classList.add('hide');
     const listaBuscador = lista.buscarPorDescripcion(buscadorDesc.value);
     if(listaBuscador.length != 0) {
       catalogoCompleto.innerHTML = "";
@@ -228,7 +235,6 @@ catalogoCompleto.addEventListener("click", function(event) {
   if (event.target.classList.contains("detalle-button")) {
     const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
     if (pos !== -1) {
-      alert(pos);
       verDetalle(pos);
     }
   }
@@ -242,12 +248,5 @@ function verDetalle(posDetalle) {
   document.querySelector("#detalle-nombre").innerHTML = lista.getLista()[posDetalle].getNombre();
   document.querySelector("#detalle-autor").innerHTML = lista.getLista()[posDetalle].getAutor();
   document.querySelector("#detalle-desc").innerHTML = lista.getLista()[posDetalle].getDescripcion();
-  //form_aniadirKata.classList.add('hide');
-  //boton_aniadir.classList.remove('hide');
-
-  //document.querySelector("#editar-nombre-kata").value = lista.getLista()[posKataEditar].getNombre();
-  //document.querySelector("#editar-nombre-autor").value = lista.getLista()[posKataEditar].getAutor();
-  //document.querySelector("#editar-desc-kata").value = lista.getLista()[posKataEditar].getDescripcion();
-  //document.querySelector("#editar-dificultad-kata").value = lista.getLista()[posKataEditar].getDificultad();
 }
 
