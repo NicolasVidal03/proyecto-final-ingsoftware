@@ -15,14 +15,14 @@ const aniadir_dif = document.querySelector("#dificultad-kata");
 
 
 let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado');
-let prueba1 = new Kata('kata 2', 'Nico', 'Descripcion Nico', 'Basico');
+let prueba1 = new Kata('kata 2', 'Nico', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, doloribus minima quidem ducimus iusto perferendis nihil sequi. Dolorem, minus explicabo incidunt voluptate laborum, consequatur sequi distinctio perspiciatis sapiente adipisci praesentium.', 'Basico');
 let prueba2 = new Kata('kata 3', 'Cris', 'Descripcion Cris', 'Intermedio');
 let prueba3 = new Kata('kata 4', 'Sebas', 'Descripcion Sebas', 'Avanzado');
 let prueba4 = new Kata('kata 5', 'Alex', 'Descripcion Alex', 'Intermedio');
 let prueba5 = new Kata('kata 6', 'Laura', 'Descripcion Laura', 'Avanzado');
 let prueba6 = new Kata('kata 7', 'Juan', 'Descripcion Juan', 'Intermedio');
 let prueba7 = new Kata('kata 8', 'María', 'Descripcion María', 'Avanzado');
-let prueba8 = new Kata('kata 9', 'Rodrigo', 'Descripcion Rodrigo', 'Basico');
+let prueba8 = new Kata('kata 9', 'Rodrigo', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, doloribus minima quidem ducimus iusto perferendis nihil sequi. Dolorem, minus explicabo incidunt voluptate laborum, consequatur sequi distinctio perspiciatis sapiente adipisci praesentium.', 'Basico');
 let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio');
 let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico');
 let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico');
@@ -57,7 +57,7 @@ katas_disponibles.forEach(mostrarCatalogoKatas);
 function mostrarCatalogoKatas(kata) {
   catalogoCompleto.innerHTML += "<div id=\"contenedor-kata\"  data-id=\"" + kata.getId() + "\">" +
   "<h4 >" + kata.getNombre() + "</h4>" +
-  "<span>"+ kata.getDescripcion() + "</span>"+
+  "<span>"+ kata.getDescCorta() + "</span>"+
   "<span>" + kata.getAutor() + "</span>" +
   "<span>" + kata.getDificultad() + "</span>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" + 
