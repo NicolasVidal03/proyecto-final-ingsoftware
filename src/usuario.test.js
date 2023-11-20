@@ -1,4 +1,4 @@
-import { Estudiante } from "./usuario";
+import { Estudiante, Docente } from "./usuario";
 
 describe("Pruebas de usuario", () => {
     it("debería devolver el nombre", () => {
@@ -14,6 +14,11 @@ describe("Pruebas de usuario", () => {
     it("debería devolver la descripcion del estudiante", () => {
         const estudiante = new Estudiante("Juan", "Hola me llamo Juan"); 
         expect(estudiante.getDesc()).toEqual("Hola me llamo Juan");
+    });
+
+    it("debería devolver el nombre del docente", () => {
+        const docente = new Docente("Jorge"); 
+        expect(docente.getNombre()).toEqual("Jorge");
     });
 
 

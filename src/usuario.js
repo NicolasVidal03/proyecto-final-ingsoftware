@@ -20,3 +20,11 @@ export class Estudiante extends Usuario{
     }
 }
 
+
+export class Docente extends Usuario{
+    constructor(nombre, descripcion, calificacion) {
+        super(nombre, descripcion);
+        this._calificacion = calificacion;
+    }
+}
+
