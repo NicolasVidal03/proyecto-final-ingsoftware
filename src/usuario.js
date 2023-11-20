@@ -1,19 +1,18 @@
 class Usuario {
-    constructor(id, nombre, descripcion) {
-        this._id = id;
+    constructor(nombre, descripcion) {
         this._nombre = nombre;
         this._descripcion = descripcion;
     }
 
     getNombre() {
-        return "Pedro";
+        return this._nombre;
     }
 }
 
 
 export class Estudiante extends Usuario{
-    constructor(id, nombre, descripcion, promedio) {
-        super(id, nombre, descripcion);
+    constructor(nombre, descripcion, promedio) {
+        super(nombre, descripcion);
         this._promedio = promedio;
     }
 }
