@@ -107,7 +107,6 @@ catalogoCompleto.addEventListener("click", function(event) {
     posKataEditar = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
     if (posKataEditar !== -1) {
       editarKata();
-      //contenedor_kata_div = document.querySelectorAll("#contenedor-kata");
     }
   }
 });
@@ -140,7 +139,6 @@ catalogoCompleto.addEventListener("click", function(event) {
     const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
     if (pos !== -1) {
       eliminarKata(pos);
-      //contenedor_kata_div = document.querySelectorAll("#contenedor-kata");
     }
   }
 });
@@ -162,7 +160,6 @@ const buscador = document.querySelector("#buscador");
 
 buscar_kata_nombre.addEventListener("submit", (event) => {
   event.preventDefault();
-    //alert(buscador.value);  
     const listaBuscador = lista.buscarPorNombre(buscador.value);
     if(listaBuscador.length != 0) {
       catalogoCompleto.innerHTML = "";
@@ -185,7 +182,6 @@ form_buscar_dificultad.addEventListener("change",(event) => {
     if(listKatas.length > 0){
       catalogoCompleto.innerHTML = "";
       listKatas.forEach(mostrarCatalogoKatas);
-      //catalogoCompleto.innerHTML = "<div id=\"busqueda-dificultad\">" + mostrarKatas(listKatas) + "</div>";
     }
     else{
       alert("No se han encontrado coincidencias!!!");
@@ -199,8 +195,7 @@ const buscar_kata_autor = document.querySelector("#buscar-por-autor");
 const buscadorAutor = document.querySelector("#buscadorAutor");
 
 buscar_kata_autor.addEventListener("submit", (event) => {
-  event.preventDefault();
-    //alert(buscadorAutor.value);  
+  event.preventDefault(); 
     const listaBuscador = lista.buscarPorAutor(buscadorAutor.value);
     if(listaBuscador.length != 0) {
       catalogoCompleto.innerHTML = "";
@@ -216,7 +211,6 @@ const buscadorDesc = document.querySelector("#buscadorDesc");
 
 buscar_kata_desc.addEventListener("submit", (event) => {
   event.preventDefault();
-    //alert(buscadorDesc.value);  
     const listaBuscador = lista.buscarPorDescripcion(buscadorDesc.value);
     if(listaBuscador.length != 0) {
       catalogoCompleto.innerHTML = "";
@@ -227,4 +221,16 @@ buscar_kata_desc.addEventListener("submit", (event) => {
     }
 });
 
+
+//VER DETALLE DE KATA
+
+catalogoCompleto.addEventListener("click", function(event) {
+  if (event.target.classList.contains("detalle-button")) {
+    const pos = lista.getLista().findIndex(kata => kata.getId() == event.target.getAttribute("data-id"));
+    if (pos !== -1) {
+      alert(pos);
+      
+    }
+  }
+});
 
