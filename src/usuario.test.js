@@ -11,6 +11,10 @@ describe("Pruebas de usuario", () => {
         expect(estudiante.getNombre()).toEqual("Juan");
     });
 
+    it("debería devolver la descripcion del estudiante", () => {
+        const estudiante = new Estudiante("Juan", "Hola me llamo Juan"); 
+        expect(estudiante.getDesc()).toEqual("Hola me llamo Juan");
+    });
 
 
 });

@@ -7,6 +7,9 @@ class Usuario {
     getNombre() {
         return this._nombre;
     }
+    getDesc() {
+        return this._descripcion;
+    }
 }
 
 
