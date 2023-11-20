@@ -195,9 +195,13 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "")
         expect(kata.getDescCorta()).toEqual("Descripcion de p...");
     });
-    it("debería -1 en caso de que no haya sido calificado la kata", () => {
+    it("debería devolver -1 en caso de que no haya sido calificado la kata", () => {
         const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "")
         expect(kata.getPuntuacion()).toEqual(-1);
     });
-
+    it("se deberia poder editar la puntuacion de la kata", () => {
+        const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "")
+        kata.setPuntuacion(80);
+        expect(kata.getPuntuacion()).toEqual(80);
+    });
 });
