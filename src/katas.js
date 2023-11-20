@@ -46,12 +46,12 @@ export class Kata{
     setId(id) {
         this._id = id;
     }
-    setPuntuacion(n){
-        if(n > 100 || n < 0)
+    setPuntuacion(puntuacion){
+        if(puntuacion > 100 || puntuacion < 0)
         {
-            n = -1;
+            puntuacion = -1;
         }
-        this._puntuacion = n;
+        this._puntuacion = puntuacion;
     }
 
     mostrar(){
