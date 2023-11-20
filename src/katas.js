@@ -1,10 +1,11 @@
 export class Kata{
-    constructor(nombre, autor, descripcion, dificultad){
+    constructor(nombre, autor, descripcion, dificultad, puntuacion=-1){
         this._nombre = nombre;
         this._autor = autor;
         this._descripcion = descripcion;
         this._dificultad = dificultad;
         this._id = -1;
+        this._puntuacion = puntuacion;
     }
 
     getNombre(){
@@ -25,6 +26,10 @@ export class Kata{
     getId() {
         return this._id;
     }
+    getPuntuacion(){
+        return this._puntuacion;
+    }
+
 
     setNombre(nombre) {
         this._nombre = nombre;
