@@ -45,7 +45,7 @@ lista.agregarKata(prueba10);
 lista.agregarKata(prueba11);  
 
 //CONTROLADOR DE USUARIO
-const usuario = new Estudiante("Pedro", "Hola Mundo! Soy Pedro :)")
+const usuario = new Docente("Pedro", "Hola Mundo! Soy Pedro :)")
 function verificarUsuario() {
   if(usuario.getTipo() == 'estudiante') {
     boton_aniadir.classList.add('hide');
@@ -56,8 +56,6 @@ function verificarUsuario() {
   }
 }
 
-
-let contenedor_kata_div = document.querySelectorAll("#contenedor-kata");
 
 
 
