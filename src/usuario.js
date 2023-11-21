@@ -10,6 +10,7 @@ class Usuario {
     getDesc() {
         return this._descripcion;
     }
+   
 }
 
 
@@ -17,6 +18,11 @@ export class Estudiante extends Usuario{
     constructor(nombre, descripcion, promedio) {
         super(nombre, descripcion);
         this._promedio = promedio;
+        this.tipo = "estudiante";
+    }
+
+    getTipo() {
+        return this.tipo;
     }
 }
 
@@ -26,5 +32,6 @@ export class Docente extends Usuario{
         super(nombre, descripcion);
         this._calificacion = calificacion;
     }
+    
 }
 

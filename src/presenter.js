@@ -1,5 +1,6 @@
 import { Kata, CatalogoKata } from "./katas.js";
 import { arrayKatasConMismaDificultad } from "./buscarPorDificultad.js";
+import { Docente, Estudiante } from "./usuario.js";
 
 const form_aniadirKata = document.querySelector("#aniadir-kata");
 const boton_aniadir = document.querySelector('#boton-aniadir');
@@ -43,6 +44,10 @@ lista.agregarKata(prueba9);
 lista.agregarKata(prueba10);
 lista.agregarKata(prueba11);  
 
+//CONTROLADOR DE USUARIO
+const usuario = new Estudiante("Pedro", "Hola Mundo! Soy Pedro :)")
+
+
 
 let contenedor_kata_div = document.querySelectorAll("#contenedor-kata");
 
@@ -64,6 +69,14 @@ function mostrarCatalogoKatas(kata) {
   "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"detalle-button\">Detalle</button>" +
   "</div>";
+  if(usuario.getTipo() == 'estudiante') {
+    boton_aniadir.classList.add('hide');
+    document.querySelectorAll(".editar-button").forEach(
+      (obj, i) => obj.classList.add('hide'));
+    document.querySelectorAll(".eliminar-button").forEach(
+        (obj, i) => obj.classList.add('hide'));
+
+  }
 }
 
 

@@ -134,6 +134,7 @@ footer{
 
 
 
+
 #caja-detalle {
     display: flex;
     justify-content:space-around;
@@ -195,3 +196,7 @@ footer{
 
 
 
+
+.editar-button {
+    background-color: red;
+}
