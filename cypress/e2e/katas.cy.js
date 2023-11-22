@@ -48,14 +48,23 @@ describe("Sumador", () => {
 
     it("Buscar kata por descripcion", () => {
       cy.visit("/");
-      cy.get("#buscadorDesc").type("Descripcion Nico");
+      cy.get("#buscadorDesc").type("Descripcion Cris");
       cy.get("#buscar-por-desc").find("input:eq(1)").click();
-      cy.get("#resultado-div").should("contain", "Descripcion Nico");
+      cy.get("#resultado-div").should("contain", "Descripcion Cris");
     });
 
     it("Buscar kata por dificultad", () => {
       cy.visit("/");
       cy.get("#busq").select("Avanzado");
-      cy.get("#resultado-div").should("contain", "Avanzadods");
+      cy.get("#resultado-div").should("contain", "Avanzado");
     });
+
+    it("Ver detalle de la kata", () => {
+      cy.visit("/");
+      cy.get("#contenedor-kata").find(".detalle-button").click();
+      cy.get("#caja-detalle").should("contain", "kata 1");
+    });
+    
+
+
 });

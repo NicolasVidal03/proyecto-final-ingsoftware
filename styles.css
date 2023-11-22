@@ -3,7 +3,6 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 .hide{
     display: none;
 }
@@ -12,6 +11,8 @@ div, span, h1{
 }
 h1 {
     font-size: xxx-large;
+    display: flex;
+    justify-content: space-between;
 }
 
 body{
