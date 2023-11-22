@@ -45,7 +45,11 @@ lista.agregarKata(prueba10);
 lista.agregarKata(prueba11);  
 
 //CONTROLADOR DE USUARIO
-const usuario = new Estudiante("Pedro", "Hola Mundo! Soy Pedro :)")
+const usuario = new Docente("Pedro", "Hola Mundo! Soy Pedro :)")
+
+const usuario_button = document.querySelector("#usuario-button");
+
+
 function verificarUsuario() {
   if(usuario.getTipo() == 'estudiante') {
     boton_aniadir.classList.add('hide');
@@ -53,6 +57,10 @@ function verificarUsuario() {
       (obj, i) => obj.classList.add('hide'));
     document.querySelectorAll(".eliminar-button").forEach(
         (obj, i) => obj.classList.add('hide'));
+    usuario_button.innerHTML = "Cambiar a Docente"
+  }
+  else{
+    usuario_button.innerHTML = "Cambiar a Estudiante"
   }
 }
 

@@ -8,7 +8,7 @@ describe("Sumador", () => {
     it("Crear una kata", () => {
       cy.visit("/");
       cy.get("#usuario-button").invoke('text').then((texto) => {
-        if (texto == "Cambiar a Usuario") {
+        if (texto == "Cambiar a Estudiante") {
           cy.get("#boton-aniadir").find("input").click();
           cy.get("#nombre-kata").type("prueba kata");
           cy.get("#nombre-autor").type("autor");
@@ -26,7 +26,7 @@ describe("Sumador", () => {
     it("Editar una kata", () => {
       cy.visit("/");
       cy.get("#usuario-button").invoke('text').then((texto) => {
-        if (texto == "Cambiar a Usuario") {
+        if (texto == "Cambiar a Estudiante") {
           cy.get("#contenedor-kata").find("button:eq(0)").click();
           cy.get("#editar-nombre-kata").type("editar kata");
           cy.get("#editar-nombre-autor").type("autor");
@@ -44,7 +44,7 @@ describe("Sumador", () => {
     it("Eliminar una kata", () => {
       cy.visit("/");
       cy.get("#usuario-button").invoke('text').then((texto) => {
-        if (texto == "Cambiar a Usuario") {
+        if (texto == "Cambiar a Estudiante") {
           cy.get("#contenedor-kata").find("button:eq(1)").click();
         }
         else {
@@ -122,6 +122,16 @@ describe("Sumador", () => {
       });
     });
 
-      //cy.get("#contenedor-kata").find(".editar-button.hide");
+    it("Identificar tipo de usuario", () => {
+      cy.visit("/");
+      cy.get("#usuario-button").invoke('text').then((texto) => {
+        if (texto == "Cambiar a Docente") {
+          cy.log("Eres estudiante!")  
+        }
+        else {
+          cy.log("Eres docente!");
+        }
+      });
+    });
 
 });
