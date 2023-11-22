@@ -27,6 +27,9 @@ export class Kata{
         return this._id;
     }
     getPuntuacion(){
+        if(this._puntuacion == -1){
+            this.setPuntuacion("Sin calificar");
+        }
         return this._puntuacion;
     }
 

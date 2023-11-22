@@ -252,5 +252,6 @@ function verDetalle(posDetalle) {
   document.querySelector("#detalle-nombre").innerHTML = lista.getLista()[posDetalle].getNombre();
   document.querySelector("#detalle-autor").innerHTML = lista.getLista()[posDetalle].getAutor();
   document.querySelector("#detalle-desc").innerHTML = lista.getLista()[posDetalle].getDescripcion();
+  document.querySelector("#detalle-calificacion").innerHTML = lista.getLista()[posDetalle].getPuntuacion();
 }
 
