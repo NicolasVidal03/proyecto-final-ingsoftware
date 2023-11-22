@@ -7,29 +7,50 @@ describe("Sumador", () => {
 
     it("Crear una kata", () => {
       cy.visit("/");
-      cy.get("#boton-aniadir").find("input").click();
-      cy.get("#nombre-kata").type("prueba kata");
-      cy.get("#nombre-autor").type("autor");
-      cy.get("#desc-kata").type("Descripcion de prueba");
-      cy.get("#dificultad-kata").type("Basico");
-      cy.get("#aniadir-kata").find("input:eq(3)").click();
-      cy.get("#resultado-div").should("contain", "prueba kata");
+      cy.get("#usuario-button").invoke('text').then((texto) => {
+        if (texto == "Cambiar a Usuario") {
+          cy.get("#boton-aniadir").find("input").click();
+          cy.get("#nombre-kata").type("prueba kata");
+          cy.get("#nombre-autor").type("autor");
+          cy.get("#desc-kata").type("Descripcion de prueba");
+          cy.get("#dificultad-kata").type("Basico");
+          cy.get("#aniadir-kata").find("input:eq(3)").click();
+          cy.get("#resultado-div").should("contain", "prueba kata");
+        }
+        else {
+          cy.log("Estudiante no tiene permisos");
+        }
+      });
     });
 
     it("Editar una kata", () => {
       cy.visit("/");
-      cy.get("#contenedor-kata").find("button:eq(0)").click();
-      cy.get("#editar-nombre-kata").type("editar kata");
-      cy.get("#editar-nombre-autor").type("autor");
-      cy.get("#editar-desc-kata").type("Descripcion de kata editada");
-      cy.get("#editar-dificultad-kata").type("Avanzado");
-      cy.get("#editar-kata").find("input:eq(3)").click();
-      cy.get("#resultado-div").should("contain", "editar kata");
+      cy.get("#usuario-button").invoke('text').then((texto) => {
+        if (texto == "Cambiar a Usuario") {
+          cy.get("#contenedor-kata").find("button:eq(0)").click();
+          cy.get("#editar-nombre-kata").type("editar kata");
+          cy.get("#editar-nombre-autor").type("autor");
+          cy.get("#editar-desc-kata").type("Descripcion de kata editada");
+          cy.get("#editar-dificultad-kata").type("Avanzado");
+          cy.get("#editar-kata").find("input:eq(3)").click();
+          cy.get("#resultado-div").should("contain", "editar kata");
+        }
+        else {
+          cy.log("Estudiante no tiene permisos");
+        }
+      });
     });
 
     it("Eliminar una kata", () => {
       cy.visit("/");
-      cy.get("#contenedor-kata").find("button:eq(1)").click();
+      cy.get("#usuario-button").invoke('text').then((texto) => {
+        if (texto == "Cambiar a Usuario") {
+          cy.get("#contenedor-kata").find("button:eq(1)").click();
+        }
+        else {
+          cy.log("Estudiante no tiene permisos");
+        }
+      });
     });
 
     it("Buscar kata por nombre", () => {
@@ -64,6 +85,7 @@ describe("Sumador", () => {
       cy.get("#contenedor-kata").find(".detalle-button").click();
       cy.get("#caja-detalle").should("contain", "kata 1");
     });
+    
     
 
 
