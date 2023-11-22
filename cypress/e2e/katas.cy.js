@@ -90,10 +90,22 @@ describe("Sumador", () => {
       cy.visit("/");
       cy.get("#usuario-button").invoke('text').then((texto) => {
         if (texto == "Cambiar a Docente") {
-          cy.get("#boton-aniadir.hide").find("input");        
+          cy.get("#boton-aniadir.hide");        
         }
         else {
           cy.log("Docente si puede añadir");
+        }
+      });
+    });
+
+    it("Estudiante no tiene permisos de editar una kata", () => {
+      cy.visit("/");
+      cy.get("#usuario-button").invoke('text').then((texto) => {
+        if (texto == "Cambiar a Docente") {
+          cy.get("#contenedor-kata").find(".editar-button.hide");   
+        }
+        else {
+          cy.log("Docente si puede editar");
         }
       });
     });
