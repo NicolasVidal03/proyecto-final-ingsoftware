@@ -27,11 +27,9 @@ export class Kata{
         return this._id;
     }
     getPuntuacion(){
-        if(this._puntuacion == -1){
-            this.setPuntuacion("Sin calificar");
-        }
         return this._puntuacion;
     }
+
 
 
     setNombre(nombre) {
@@ -61,7 +59,13 @@ export class Kata{
 //        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
     return `<div>Nombre kata: ${this._nombre}, Autor: ${this._autor}</div>`;
     }
-
+    mostraPuntuacion(){
+        let puntuacion = this.getPuntuacion();
+        if(puntuacion == -1){
+            this.setPuntuacion("Sin calificar");
+        }
+        return this.getPuntuacion();
+    }
 
 }
 

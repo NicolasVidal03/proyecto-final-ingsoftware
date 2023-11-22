@@ -214,4 +214,13 @@ describe("Obtiene el nombre", () => {
         kata.setPuntuacion(-100);
         expect(kata.getPuntuacion()).toEqual(-1);
     });
+    it("si la puntuacion es -1, muestra como kata NO calificada", () => {
+        const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "", 10)
+        kata.setPuntuacion(-100);
+        expect(kata.mostraPuntuacion()).toEqual("Sin calificar");
+    });
+    it("si la puntuacion NO es -1, muestra la calificacion de la kata", () => {
+        const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "", 10)
+        expect(kata.mostraPuntuacion()).toEqual(10);
+    });
 });
