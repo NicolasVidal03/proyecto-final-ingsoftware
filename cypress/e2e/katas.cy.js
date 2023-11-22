@@ -110,6 +110,18 @@ describe("Sumador", () => {
       });
     });
 
+    it("Estudiante no tiene permisos de eliminar una kata", () => {
+      cy.visit("/");
+      cy.get("#usuario-button").invoke('text').then((texto) => {
+        if (texto == "Cambiar a Docente") {
+          cy.get("#contenedor-kata").find(".eliminar-button.hide");   
+        }
+        else {
+          cy.log("Docente si puede editar");
+        }
+      });
+    });
+
       //cy.get("#contenedor-kata").find(".editar-button.hide");
 
 });
