@@ -86,7 +86,18 @@ describe("Sumador", () => {
       cy.get("#caja-detalle").should("contain", "kata 1");
     });
     
-    
+    it("Estudiante no tiene permisos de añadir nueva kata", () => {
+      cy.visit("/");
+      cy.get("#usuario-button").invoke('text').then((texto) => {
+        if (texto == "Cambiar a Docente") {
+          cy.get("#boton-aniadir.hide").find("input");        
+        }
+        else {
+          cy.log("Docente si puede añadir");
+        }
+      });
+    });
 
+      //cy.get("#contenedor-kata").find(".editar-button.hide");
 
 });
