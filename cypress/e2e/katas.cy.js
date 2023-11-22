@@ -134,4 +134,10 @@ describe("Sumador", () => {
       });
     });
 
+    it("Cambiar entre usuario", () => {
+      cy.visit("/");
+      cy.get("#usuario-button").click();
+      cy.get("#usuario-button").should("contain", "Cambiar a Docente");
+    });
+
 });

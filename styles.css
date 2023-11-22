@@ -181,7 +181,7 @@ footer{
 #detalle-info {
     display: flex;
     margin-bottom: 1rem;
-    align-items:end;
+    align-items:center;
     background-color: rgba(27, 71, 71, 0.63);
     box-shadow: 0 0 20px rgba(27, 71, 71);
     border-radius: 20px;
