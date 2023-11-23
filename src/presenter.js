@@ -1,5 +1,6 @@
 import { Kata, CatalogoKata } from "./katas.js";
 import { arrayKatasConMismaDificultad } from "./buscarPorDificultad.js";
+import { Docente, Estudiante } from "./usuario.js";
 
 const form_aniadirKata = document.querySelector("#aniadir-kata");
 const boton_aniadir = document.querySelector('#boton-aniadir');
@@ -43,8 +44,46 @@ lista.agregarKata(prueba9);
 lista.agregarKata(prueba10);
 lista.agregarKata(prueba11);  
 
+//CONTROLADOR DE USUARIO
 
-let contenedor_kata_div = document.querySelectorAll("#contenedor-kata");
+const docente = new Docente("Sergio", "Hola Mundo! Soy el docente Sergio :)")
+const estudiante = new Estudiante("Pedro", "Hola Mundo! Soy Pedro :)")
+
+var usuario = docente;
+
+const usuario_button = document.querySelector("#usuario-button");
+
+usuario_button.addEventListener("click", (event) => {
+  event.preventDefault();
+  console.log("HOLA");
+    if(usuario_button.getAttribute("data-usuario") == "docente") {
+      usuario = estudiante;
+      usuario_button.setAttribute("data-usuario", "estudiante");    }
+    else{
+      usuario = docente;
+      usuario_button.setAttribute("data-usuario", "docente");    }
+    verificarUsuario();
+});
+
+function verificarUsuario() {
+  if(usuario.getTipo() == 'estudiante') {
+    boton_aniadir.classList.add('hide');
+    document.querySelectorAll(".editar-button").forEach(
+      (obj, i) => obj.classList.add('hide'));
+    document.querySelectorAll(".eliminar-button").forEach(
+        (obj, i) => obj.classList.add('hide'));
+    usuario_button.innerHTML = "Cambiar a Docente"
+  }
+  else{
+    boton_aniadir.classList.remove('hide');
+    document.querySelectorAll(".editar-button").forEach(
+      (obj, i) => obj.classList.remove('hide'));
+    document.querySelectorAll(".eliminar-button").forEach(
+        (obj, i) => obj.classList.remove('hide'));
+    usuario_button.innerHTML = "Cambiar a Estudiante"
+  }
+}
+
 
 
 
@@ -64,6 +103,7 @@ function mostrarCatalogoKatas(kata) {
   "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"detalle-button\">Detalle</button>" +
   "</div>";
+  verificarUsuario();
 }
 
 

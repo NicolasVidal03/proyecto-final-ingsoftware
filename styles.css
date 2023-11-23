@@ -3,7 +3,6 @@
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 .hide{
     display: none;
 }
@@ -12,6 +11,8 @@ div, span, h1{
 }
 h1 {
     font-size: xxx-large;
+    display: flex;
+    justify-content: space-between;
 }
 
 body{
@@ -134,6 +135,7 @@ footer{
 
 
 
+
 #caja-detalle {
     display: flex;
     justify-content:space-around;
@@ -179,7 +181,7 @@ footer{
 #detalle-info {
     display: flex;
     margin-bottom: 1rem;
-    align-items:end;
+    align-items:center;
     background-color: rgba(27, 71, 71, 0.63);
     box-shadow: 0 0 20px rgba(27, 71, 71);
     border-radius: 20px;
@@ -195,3 +197,7 @@ footer{
 
 
 
+
+.editar-button {
+    background-color: red;
+}
