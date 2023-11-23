@@ -390,6 +390,24 @@ describe("Obtiene el nombre", () => {
         expect(listaOrdenada[1].getAutor()).toEqual('AutorB');
     });
     
+    it('debería ordenar las katas por descripción en orden alfabético', () => {
+        // Preparar
+        const catalogo = new CatalogoKata();
+        const kata1 = new Kata('nombre1', 'autor1', 'bDescripcion1', 'dificultad1');
+        const kata2 = new Kata('nombre2', 'autor2', 'aDescripcion2', 'dificultad2');
+        const kata3 = new Kata('nombre3', 'autor3', 'cDescripcion3', 'dificultad3');
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+        catalogo.agregarKata(kata3);
     
+        // Actuar
+        catalogo.ordenarPorDescripcion();
+    
+        // Comprobar
+        const listaOrdenada = catalogo.getLista();
+        expect(listaOrdenada[0].getDescripcion()).toEqual('aDescripcion2');
+        expect(listaOrdenada[1].getDescripcion()).toEqual('bDescripcion1');
+        expect(listaOrdenada[2].getDescripcion()).toEqual('cDescripcion3');
+      });
     
 });

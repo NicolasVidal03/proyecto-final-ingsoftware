@@ -184,6 +184,21 @@ export class CatalogoKata{
             } 
         });
     }
+    ordenarPorDescripcion() {
+        this.listaKatas.sort((kataA, kataB) => {
+            const descripcionA = kataA.getDescripcion().toLowerCase();
+            const descripcionB = kataB.getDescripcion().toLowerCase();
+    
+            if (descripcionA < descripcionB) {
+                return -1;
+            }
+            else if (descripcionA > descripcionB) {
+                return 1;
+            } else {
+                return 0;
+            } 
+        });
+    }
 
     clone() {
         const nuevoCatalogo = new CatalogoKata();
