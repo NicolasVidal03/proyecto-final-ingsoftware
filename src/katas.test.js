@@ -223,4 +223,8 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "", 10)
         expect(kata.mostraPuntuacion()).toEqual(10);
     });
+    it("debería obtener el estado", () => {
+        const kata = new Kata("kata1", "jorge", "", "")
+        expect(kata.getEstado()).toEqual("No terminado");
+    });
 });
