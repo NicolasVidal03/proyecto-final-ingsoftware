@@ -159,7 +159,15 @@ describe("Sumador", () => {
       cy.get("#resultado-div").find("div:eq(1)").should("contain", "Cristina");
       cy.get("#resultado-div").find("div:eq(2)").should("contain", "Elena");
     });
-
+    it("mostrar katas ordenadas por descripcion", () => {
+      cy.visit("/");
+      cy.get("#ord").select("Por descripcion");
+      
+      cy.get("#resultado-div").find("div:eq(0)").should("contain", "aaaa.");
+      cy.get("#resultado-div").find("div:eq(1)").should("contain", "bbbb.");
+      cy.get("#resultado-div").find("div:eq(2)").should("contain", "cccc.");
+  
+    });
    
     
     
