@@ -320,6 +320,11 @@ form_ordenar.addEventListener("change",(event) => {
       copiaLista.getLista().forEach(mostrarCatalogoKatas);
 
     }
+    else if(ordenar_value == "Por descripcion"){
+      copiaLista.ordenarPorDescripcion();
+      catalogoCompleto.innerHTML = "";
+      copiaLista.getLista().forEach(mostrarCatalogoKatas);
+    }
     else{
       alert("No se han encontrado coincidencias!!!");
     }
