@@ -2,7 +2,7 @@ describe("Sumador", () => {
 
     it("Mostrar una kata", () => {
       cy.visit("/");
-      cy.get("#resultado-div").should("contain", "kata 1");
+      cy.get("#resultado-div").should("contain", "Contando Valles");
     });
 
     it("Crear una kata", () => {
@@ -57,7 +57,7 @@ describe("Sumador", () => {
       cy.visit("/");
       cy.get("#buscador").type("kata 1");
       cy.get("#buscar-por-nombre").find("input:eq(1)").click();
-      cy.get("#resultado-div").should("contain", "kata 1");
+      cy.get("#resultado-div").should("contain", "Contando Valles");
     });
 
     it("Buscar kata por autor", () => {
@@ -69,9 +69,9 @@ describe("Sumador", () => {
 
     it("Buscar kata por descripcion", () => {
       cy.visit("/");
-      cy.get("#buscadorDesc").type("Descripcion Cris");
+      cy.get("#buscadorDesc").type("Escribe una función que invierta una cadena. No uses métodos de inversión incorporados.");
       cy.get("#buscar-por-desc").find("input:eq(1)").click();
-      cy.get("#resultado-div").should("contain", "Descripcion Cris");
+      cy.get("#resultado-div").should("contain", "Escribe una func...");
     });
 
     it("Buscar kata por dificultad", () => {
@@ -83,7 +83,7 @@ describe("Sumador", () => {
     it("Ver detalle de la kata", () => {
       cy.visit("/");
       cy.get("#contenedor-kata").find(".detalle-button").click();
-      cy.get("#caja-detalle").should("contain", "kata 1");
+      cy.get("#caja-detalle").should("contain", "Sumas de Dos Números");
     });
     
     it("Estudiante no tiene permisos de añadir nueva kata", () => {
@@ -172,4 +172,11 @@ describe("Sumador", () => {
     
     
     
+    it("mostrar puntuacion", () => {
+      cy.visit("/");
+      cy.get("#contenedor-kata").find(".detalle-button").click();
+      cy.get("#detalle-kata").find("#detalle-calificacion").should("contain", "Sin calificar");
+    });
+    
+
 });
