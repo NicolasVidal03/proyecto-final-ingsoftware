@@ -14,19 +14,19 @@ const aniadir_autor = document.querySelector("#nombre-autor");
 const aniadir_desc = document.querySelector("#desc-kata");
 const aniadir_dif = document.querySelector("#dificultad-kata");
 
+let prueba = new Kata('Suma de Dos Números', 'Oswaldo', 'Dado un arreglo de números enteros, devuelve los índices de los dos números de manera que sumen un objetivo específico.', 'Intermedio');
+let prueba1 = new Kata('Invertir una Cadena', 'Nicolás', 'Escribe una función que invierta una cadena. No uses métodos de inversión incorporados.', 'Basico');
+let prueba2 = new Kata('Verificador de Palíndromos', 'Cristina', 'Verifica si una cadena dada es un palíndromo. Ignora caracteres no alfanuméricos.', 'Intermedio');
+let prueba3 = new Kata('Mezclar Arreglos Ordenados', 'Sebastián', 'Dados dos arreglos ordenados, mézclalos en un solo arreglo ordenado.', 'Avanzado');
+let prueba4 = new Kata('Encontrar Número Faltante', 'Alejandro', 'Dado un arreglo que contiene n números distintos tomados de 0, 1, 2, ..., n, encuentra el que falta en el arreglo.', 'Intermedio');
+let prueba5 = new Kata('Prefijo Común Más Largo', 'Laura', 'Escribe una función para encontrar el prefijo común más largo entre un arreglo de cadenas.', 'Avanzado');
+let prueba6 = new Kata('Eliminar Duplicados de un Arreglo Ordenado', 'Juan', 'Dado un arreglo ordenado nums, elimina los duplicados in situ de manera que cada elemento aparezca solo una vez y devuelve la nueva longitud.', 'Intermedio');
+let prueba7 = new Kata('Suma Máxima de Subarreglo', 'María', 'Encuentra el subarreglo contiguo con la suma más grande y devuelve su suma.', 'Avanzado');
+let prueba8 = new Kata('FizzBuzz', 'Rodrigo', 'Escribe un programa que imprima los números del 1 al 100. Pero para los múltiplos de tres imprime "Fizz" en lugar del número y para los múltiplos de cinco imprime "Buzz".', 'Basico');
+let prueba9 = new Kata('Contando Valles', 'Elena', 'Gary es un excursionista ávido. Comienza su caminata a nivel del mar y sigue sus pasos. Un valle es una secuencia de pasos consecutivos por debajo del nivel del mar, comenzando con un paso hacia abajo desde el nivel del mar y terminando con un paso hacia arriba al nivel del mar.', 'Intermedio');
+let prueba10 = new Kata('Paréntesis Válidos', 'Pedro', 'Dada una cadena que contiene solo los caracteres \'(\', \')\', \'{\', \'}\', \'[\' y \']\', determina si la cadena de entrada es válida.', 'Avanzado');
+let prueba11 = new Kata('Romano a Entero', 'María', 'Dado un número romano, conviértelo a un número entero. Se garantiza que la entrada estará dentro del rango de 1 a 3999.', 'Avanzado');
 
-let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado');
-let prueba1 = new Kata('kata 2', 'Nico', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, doloribus minima quidem ducimus iusto perferendis nihil sequi. Dolorem, minus explicabo incidunt voluptate laborum, consequatur sequi distinctio perspiciatis sapiente adipisci praesentium.', 'Basico');
-let prueba2 = new Kata('kata 3', 'Cris', 'Descripcion Cris', 'Intermedio');
-let prueba3 = new Kata('kata 4', 'Sebas', 'Descripcion Sebas', 'Avanzado');
-let prueba4 = new Kata('kata 5', 'Alex', 'Descripcion Alex', 'Intermedio');
-let prueba5 = new Kata('kata 6', 'Laura', 'Descripcion Laura', 'Avanzado');
-let prueba6 = new Kata('kata 7', 'Juan', 'Descripcion Juan', 'Intermedio');
-let prueba7 = new Kata('kata 8', 'María', 'Descripcion María', 'Avanzado');
-let prueba8 = new Kata('kata 9', 'Rodrigo', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, doloribus minima quidem ducimus iusto perferendis nihil sequi. Dolorem, minus explicabo incidunt voluptate laborum, consequatur sequi distinctio perspiciatis sapiente adipisci praesentium.', 'Basico');
-let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio');
-let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico');
-let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico');
 
 
 
@@ -292,6 +292,10 @@ function verDetalle(posDetalle) {
   document.querySelector("#detalle-nombre").innerHTML = lista.getLista()[posDetalle].getNombre();
   document.querySelector("#detalle-autor").innerHTML = lista.getLista()[posDetalle].getAutor();
   document.querySelector("#detalle-desc").innerHTML = lista.getLista()[posDetalle].getDescripcion();
-  document.querySelector("#detalle-calificacion").innerHTML = lista.getLista()[posDetalle].getPuntuacion();
+  document.querySelector("#detalle-calificacion").innerHTML = lista.getLista()[posDetalle].mostrarPuntuacion();
 }
+
+
+
+
 

@@ -217,10 +217,36 @@ describe("Obtiene el nombre", () => {
     it("si la puntuacion es -1, muestra como kata NO calificada", () => {
         const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "", 10)
         kata.setPuntuacion(-100);
-        expect(kata.mostraPuntuacion()).toEqual("Sin calificar");
+        expect(kata.mostrarPuntuacion()).toEqual("Sin calificar");
     });
     it("si la puntuacion NO es -1, muestra la calificacion de la kata", () => {
         const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "", 10)
-        expect(kata.mostraPuntuacion()).toEqual(10);
+        expect(kata.mostrarPuntuacion()).toEqual(10);
+    });
+    it("si la puntuacion NO es -1, muestra la calificacion de la kata", () => {
+        const kata = new Kata("kata1", "jorge", "Descripcion de prueba de Jorge", "", 10)
+        expect(kata.mostrarPuntuacion()).toEqual(10);
+    });
+    it("Ordena una lista de katas", () => {
+        const catalogo = new CatalogoKata();
+        const kata1 = new Kata('C', 'autor1', "", "");
+        const kata2 = new Kata('B', 'autor2', "", "");
+        const kata3 = new Kata('A', 'autor3', "", "");
+        const kata4 = new Kata('A', 'autor1', "", "");
+        const kata5 = new Kata('D', 'autor2', "", "");
+        const kata6 = new Kata('E', 'autor3', "", "");
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+        catalogo.agregarKata(kata3);
+        catalogo.agregarKata(kata4);
+        catalogo.agregarKata(kata5);
+        catalogo.agregarKata(kata6);
+        catalogo.ordenarPorNombre();
+        expect(catalogo.getLista()[0].getNombre()).toEqual("A");
+        expect(catalogo.getLista()[1].getNombre()).toEqual("A");
+        expect(catalogo.getLista()[2].getNombre()).toEqual("B");
+        expect(catalogo.getLista()[3].getNombre()).toEqual("C");
+        expect(catalogo.getLista()[4].getNombre()).toEqual("D");
+        expect(catalogo.getLista()[5].getNombre()).toEqual("E");
     });
 });

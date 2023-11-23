@@ -59,13 +59,14 @@ export class Kata{
 //        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
     return `<div>Nombre kata: ${this._nombre}, Autor: ${this._autor}</div>`;
     }
-    mostraPuntuacion(){
+    mostrarPuntuacion(){
         let puntuacion = this.getPuntuacion();
         if(puntuacion == -1){
             this.setPuntuacion("Sin calificar");
         }
         return this.getPuntuacion();
     }
+    
 
 }
 
@@ -138,5 +139,21 @@ export class CatalogoKata{
             }
         }
         return coincidencias;
+    }
+
+    ordenarPorNombre() {
+        this.listaKatas.sort((kataA, kataB) => {
+            const nombreA = kataA.getNombre().toLowerCase();
+            const nombreB = kataB.getNombre().toLowerCase();
+
+            if (nombreA < nombreB) {
+                return -1;
+            }
+            else if (nombreA > nombreB) {
+                return 1;
+            } else {
+                return 0;
+            } 
+        });
     }
 }
