@@ -6,6 +6,7 @@ export class Kata{
         this._dificultad = dificultad;
         this._id = -1;
         this._puntuacion = puntuacion;
+        this._estado = "No Terminado";
     }
 
     getNombre(){
@@ -28,6 +29,9 @@ export class Kata{
     }
     getPuntuacion(){
         return this._puntuacion;
+    }
+    getEstado() {
+        return this._estado;
     }
 
 
@@ -54,6 +58,14 @@ export class Kata{
         }
         this._puntuacion = puntuacion;
     }
+    setEstado(estado) {
+        if(estado == "Terminado" || estado == "No terminado") {
+            this._estado = estado;
+            return true;
+        }
+        return false;
+    }
+
 
     mostrar(){
 //        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
@@ -173,5 +185,16 @@ export class CatalogoKata{
         }
 
         return nuevoCatalogo;
+    }
+    buscarPorEstado(estado) {
+        let coincidencias = [];
+        for(let i = 0; i<this.listaKatas.length; i++)
+        {
+            if(this.listaKatas[i].getEstado() === estado){
+                coincidencias.push(this.listaKatas[i]);
+            }
+        }
+        return coincidencias;
+
     }
 }

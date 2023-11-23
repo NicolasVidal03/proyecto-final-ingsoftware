@@ -140,4 +140,16 @@ describe("Sumador", () => {
       cy.get("#usuario-button").should("contain", "Cambiar a Docente");
     });
 
+
+    it("Buscar kata por estado no terminado", () => {
+      cy.visit("/");
+      cy.get("#buscadorEstado").select("No Terminado");
+      cy.get("#resultado-div").should("contain", "No Terminado");
+    });
+    it("Buscar kata por estado terminado", () => {
+      cy.visit("/");
+      cy.get("#buscadorEstado").select("Terminado");
+      cy.get("#resultado-div").should("contain", "Terminado");
+    });
+
 });

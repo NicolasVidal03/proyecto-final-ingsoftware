@@ -14,6 +14,7 @@ const aniadir_nombre = document.querySelector("#nombre-kata");
 const aniadir_autor = document.querySelector("#nombre-autor");
 const aniadir_desc = document.querySelector("#desc-kata");
 const aniadir_dif = document.querySelector("#dificultad-kata");
+const cambiar_est = document.querySelector("#estado-kata");
 
 let prueba = new Kata('Sumas de Dos Números', 'Oswaldo', 'Dado un arreglo de números enteros, devuelve los índices de los dos números de manera que sumen un objetivo específico.', 'Intermedio');
 let prueba1 = new Kata('Invertir una Cadena', 'Nicolás', 'Escribe una función que invierta una cadena. No uses métodos de inversión incorporados.', 'Basico');
@@ -29,7 +30,9 @@ let prueba10 = new Kata('Paréntesis Válidos', 'Pedro', 'Dada una cadena que co
 let prueba11 = new Kata('Romano a Entero', 'María', 'Dado un número romano, conviértelo a un número entero. Se garantiza que la entrada estará dentro del rango de 1 a 3999.', 'Avanzado');
 
 
-
+prueba1.setEstado("Terminado");
+prueba3.setEstado("Terminado");
+prueba7.setEstado("Terminado");
 
 const lista = new CatalogoKata();
 lista.agregarKata(prueba);
@@ -100,6 +103,7 @@ function mostrarCatalogoKatas(kata) {
   "<span>"+ kata.getDescCorta() + "</span>"+
   "<span>" + kata.getAutor() + "</span>" +
   "<span>" + kata.getDificultad() + "</span>" +
+  "<span>" + kata.getEstado() + "</span>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" + 
   "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"detalle-button\">Detalle</button>" +
@@ -321,5 +325,17 @@ form_ordenar.addEventListener("change",(event) => {
   }
 })
 
+const buscar_kata_estado = document.querySelector("#buscar-por-estado");
+const buscadorEst = document.querySelector("#buscadorEstado");
 
-
+buscar_kata_estado.addEventListener("change", (event) => {
+  event.preventDefault();
+  const listaBuscador = lista.buscarPorEstado(buscadorEst.value);
+  if (listaBuscador.length != 0) {
+    catalogoCompleto.innerHTML = "";
+    listaBuscador.forEach(mostrarCatalogoKatas);
+  }
+  else {
+    alert("No hay katas con ese estado");
+  }
+});

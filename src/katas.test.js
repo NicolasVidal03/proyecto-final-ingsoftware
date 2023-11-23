@@ -262,4 +262,30 @@ describe("Obtiene el nombre", () => {
         expect(copiaLista.getLista()[1].getNombre()).toEqual("B");
         expect(copiaLista.getLista()[2].getNombre()).toEqual("C");
     });
+    it("debería obtener el estado", () => {
+        const kata = new Kata("kata1", "jorge", "", "")
+        expect(kata.getEstado()).toEqual("No terminado");
+    });
+    it("debería cambiar el estado de la kata a prueba", () => {
+        const kata = new Kata("kata1", "jorge", "", "")
+        expect(kata.setEstado("Terminado")).toEqual(true);
+    });
+    it("debería cambiar el estado de la kata a prueba", () => {
+        const kata = new Kata("kata1", "jorge", "", "")
+        expect(kata.setEstado("Hola")).toEqual(false);
+    });
+    it("deberia devolver el nombre de la kata buscada por el estado", () => {
+        const catalogo = new CatalogoKata();
+        const kata1 = new Kata('kata1', 'autor1', "", "");
+        catalogo.agregarKata(kata1);
+        expect(kata1.setEstado("Terminado"))
+        expect(catalogo.buscarPorEstado('Terminado')[0].getNombre()).toEqual("kata1");
+    })
+    it("deberia devolver el nombre de la kata buscada por el estado", () => {
+        const catalogo = new CatalogoKata();
+        const kata1 = new Kata('kata1', 'autor1', "", "");
+        catalogo.agregarKata(kata1);
+        expect(kata1.setEstado("Terminado"))
+        expect(catalogo.buscarPorEstado('No Terminado')).toEqual([]);
+    })
 });
