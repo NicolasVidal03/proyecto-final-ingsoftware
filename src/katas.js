@@ -30,6 +30,9 @@ export class Kata{
     getPuntuacion(){
         return this._puntuacion;
     }
+    getEstado() {
+        return this._estado;
+    }
 
 
 
