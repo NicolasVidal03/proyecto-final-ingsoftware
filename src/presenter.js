@@ -296,7 +296,30 @@ function verDetalle(posDetalle) {
   document.querySelector("#detalle-calificacion").innerHTML = lista.getLista()[posDetalle].mostrarPuntuacion();
 }
 
-
+//ordenar por nombre
+form_ordenar.addEventListener("change",(event) => {
+  event.preventDefault();
+  div_detalle_kata.classList.add('hide');
+  const ordenar = document.querySelector("#ord");
+  const ordenar_value = ordenar.value;
+  const copiaLista = lista.clone();
+  
+  if(ordenar_value != "Por defecto"){
+    if(ordenar_value == "Por nombre"){
+      copiaLista.ordenarPorNombre();
+      catalogoCompleto.innerHTML = "";
+      copiaLista.getLista().forEach(mostrarCatalogoKatas);
+    }
+    else{
+      alert("No se han encontrado coincidencias!!!");
+    }
+    
+  }
+  else{
+    catalogoCompleto.innerHTML = "";
+   lista.getLista().forEach(mostrarCatalogoKatas);
+  }
+})
 
 
 
