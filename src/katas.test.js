@@ -264,8 +264,9 @@ describe("Obtiene el nombre", () => {
     });
     it("debería obtener el estado", () => {
         const kata = new Kata("kata1", "jorge", "", "")
-        expect(kata.getEstado()).toEqual("No terminado");
+        expect(kata.getEstado()).toEqual("No Terminado");
     });
+    
     it("debería cambiar el estado de la kata a prueba", () => {
         const kata = new Kata("kata1", "jorge", "", "")
         expect(kata.setEstado("Terminado")).toEqual(true);
@@ -288,4 +289,25 @@ describe("Obtiene el nombre", () => {
         expect(kata1.setEstado("Terminado"))
         expect(catalogo.buscarPorEstado('No Terminado')).toEqual([]);
     })
+    it("debería obtener la dificultad", () => {
+        const kata = new Kata("kata1", "jorge", "", "Intermedio")
+        expect(kata.getDificultad()).toEqual("Intermedio");
+    });
+    
+    it("debería obtener el ID", () => {
+        const kata = new Kata("kata1", "jorge", "", "Intermedio")
+        kata.setId(1);
+        expect(kata.getId()).toEqual(1);
+    });
+    
+    it("debería obtener la puntuación", () => {
+        const kata = new Kata("kata1", "jorge", "", "Intermedio", 80)
+        expect(kata.getPuntuacion()).toEqual(80);
+    });
+    
+    it("debería obtener el estado", () => {
+        const kata = new Kata("kata1", "jorge", "", "Intermedio")
+        expect(kata.getEstado()).toEqual("No Terminado");
+    });
+    
 });

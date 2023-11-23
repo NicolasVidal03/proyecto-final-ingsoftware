@@ -20,6 +20,15 @@ describe("Pruebas de usuario", () => {
         const docente = new Docente("Jorge"); 
         expect(docente.getNombre()).toEqual("Jorge");
     });
-
+    it("debería obtener el tipo de usuario para Estudiante", () => {
+        const estudiante = new Estudiante("nombre", "descripcion", 90);
+        expect(estudiante.getTipo()).toEqual("estudiante");
+    });
+    
+    it("debería obtener el tipo de usuario para Docente", () => {
+        const docente = new Docente("nombre", "descripcion", 95);
+        expect(docente.getTipo()).toEqual("docente");
+    });
+    
 
 });

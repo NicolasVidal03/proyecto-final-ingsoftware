@@ -25,9 +25,9 @@ let prueba5 = new Kata('Prefijo Común Más Largo', 'Laura', 'Escribe una funci�
 let prueba6 = new Kata('Eliminar Duplicados de un Arreglo Ordenado', 'Juan', 'Dado un arreglo ordenado nums, elimina los duplicados in situ de manera que cada elemento aparezca solo una vez y devuelve la nueva longitud.', 'Intermedio');
 let prueba7 = new Kata('Suma Máxima de Subarreglo', 'María', 'Encuentra el subarreglo contiguo con la suma más grande y devuelve su suma.', 'Avanzado');
 let prueba8 = new Kata('FizzBuzz', 'Rodrigo', 'Escribe un programa que imprima los números del 1 al 100. Pero para los múltiplos de tres imprime "Fizz" en lugar del número y para los múltiplos de cinco imprime "Buzz".', 'Basico');
-let prueba9 = new Kata('Contando Valles', 'Elena', 'Gary es un excursionista ávido. Comienza su caminata a nivel del mar y sigue sus pasos. Un valle es una secuencia de pasos consecutivos por debajo del nivel del mar, comenzando con un paso hacia abajo desde el nivel del mar y terminando con un paso hacia arriba al nivel del mar.', 'Intermedio');
-let prueba10 = new Kata('Paréntesis Válidos', 'Pedro', 'Dada una cadena que contiene solo los caracteres \'(\', \')\', \'{\', \'}\', \'[\' y \']\', determina si la cadena de entrada es válida.', 'Avanzado');
-let prueba11 = new Kata('Romano a Entero', 'María', 'Dado un número romano, conviértelo a un número entero. Se garantiza que la entrada estará dentro del rango de 1 a 3999.', 'Avanzado');
+let prueba9 = new Kata('Contando Valles', 'Elena', 'cccc.', 'Intermedio');
+let prueba10 = new Kata('Paréntesis Válidos', 'Pedro', 'aaaa', 'Avanzado');
+let prueba11 = new Kata('Romano a Entero', 'María', 'bbbb.', 'Avanzado');
 
 
 prueba1.setEstado("Terminado");
@@ -314,6 +314,7 @@ form_ordenar.addEventListener("change",(event) => {
       catalogoCompleto.innerHTML = "";
       copiaLista.getLista().forEach(mostrarCatalogoKatas);
     }
+    
     else{
       alert("No se han encontrado coincidencias!!!");
     }

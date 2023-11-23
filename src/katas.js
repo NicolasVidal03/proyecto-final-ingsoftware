@@ -168,6 +168,8 @@ export class CatalogoKata{
             } 
         });
     }
+    
+    
 
     clone() {
         const nuevoCatalogo = new CatalogoKata();

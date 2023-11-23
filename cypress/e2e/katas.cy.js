@@ -152,4 +152,8 @@ describe("Sumador", () => {
       cy.get("#resultado-div").should("contain", "Terminado");
     });
 
+   
+    
+    
+    
 });
