@@ -227,4 +227,12 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata1", "jorge", "", "")
         expect(kata.getEstado()).toEqual("No terminado");
     });
+    it("debería cambiar el estado de la kata a prueba", () => {
+        const kata = new Kata("kata1", "jorge", "", "")
+        expect(kata.setEstado("Terminado")).toEqual(true);
+    });
+    it("debería cambiar el estado de la kata a prueba", () => {
+        const kata = new Kata("kata1", "jorge", "", "")
+        expect(kata.setEstado("Hola")).toEqual(false);
+    });
 });

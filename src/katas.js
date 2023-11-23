@@ -58,6 +58,14 @@ export class Kata{
         }
         this._puntuacion = puntuacion;
     }
+    setEstado(estado) {
+        if(estado == "Terminado" || estado == "No terminado") {
+            this._estado = estado;
+            return true;
+        }
+        return false;
+    }
+
 
     mostrar(){
 //        return `<button class=\"btn\">Nombre kata: ${this._nombre}, Autor: ${this._autor}</button>`;
