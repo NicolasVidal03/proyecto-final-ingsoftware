@@ -151,6 +151,14 @@ describe("Sumador", () => {
       cy.get("#buscadorEstado").select("Terminado");
       cy.get("#resultado-div").should("contain", "Terminado");
     });
+    
+    it("mostrar katas ordenadas por autor", () => {
+      cy.visit("/");
+      cy.get("#ord").select("Por autor");
+      cy.get("#resultado-div").find("div:eq(0)").should("contain", "Alejandro");
+      cy.get("#resultado-div").find("div:eq(1)").should("contain", "Cristina");
+      cy.get("#resultado-div").find("div:eq(2)").should("contain", "Elena");
+    });
 
    
     

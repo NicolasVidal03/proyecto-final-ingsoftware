@@ -309,5 +309,87 @@ describe("Obtiene el nombre", () => {
         const kata = new Kata("kata1", "jorge", "", "Intermedio")
         expect(kata.getEstado()).toEqual("No Terminado");
     });
+    test('debería ordenar las katas por autor', () => {
+        const kata1 = new Kata('Kata1', 'AutorB', 'Descripcion1', 'Dificultad1');
+        const kata2 = new Kata('Kata2', 'AutorA', 'Descripcion2', 'Dificultad2');
+        const catalogo = new CatalogoKata();
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+    
+        catalogo.ordenarPorAutor();
+    
+        const listaOrdenada = catalogo.getLista();
+        expect(listaOrdenada[0].getAutor()).toEqual('AutorA');
+        expect(listaOrdenada[1].getAutor()).toEqual('AutorB');
+    });
+    
+    test('debería ordenar las katas por autor cuando autorA > autorB', () => {
+        const kata1 = new Kata('Kata1', 'ButorZ', 'Descripcion1', 'Dificultad1');
+        const kata2 = new Kata('Kata2', 'AutorA', 'Descripcion2', 'Dificultad2');
+        const catalogo = new CatalogoKata();
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+    
+        catalogo.ordenarPorAutor();
+    
+        const listaOrdenada = catalogo.getLista();
+        expect(listaOrdenada[0].getAutor()).toEqual('AutorA');
+        expect(listaOrdenada[1].getAutor()).toEqual('ButorZ');
+    });
+    test('debería ordenar las katas por autor', () => {
+        const kata1 = new Kata('Kata1', 'Autor2', 'Descripcion1', 'Dificultad1');
+        const kata2 = new Kata('Kata2', 'Autor1', 'Descripcion2', 'Dificultad2');
+        const catalogo = new CatalogoKata();
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+    
+        catalogo.ordenarPorAutor();
+    
+        const listaOrdenada = catalogo.getLista();
+        expect(listaOrdenada[0].getAutor()).toEqual('Autor1');
+        expect(listaOrdenada[1].getAutor()).toEqual('Autor2');
+    });
+    test('debería ordenar las katas por autor cuando autorA > autorB', () => {
+        const kata1 = new Kata('Kata1', 'AutorB', 'Descripcion1', 'Dificultad1');
+        const kata2 = new Kata('Kata2', 'AutorA', 'Descripcion2', 'Dificultad2');
+        const catalogo = new CatalogoKata();
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+    
+        catalogo.ordenarPorAutor();
+    
+        const listaOrdenada = catalogo.getLista();
+        expect(listaOrdenada[0].getAutor()).toEqual('AutorA');
+        expect(listaOrdenada[1].getAutor()).toEqual('AutorB');
+    });
+    
+    test('debería mantener el orden original de las katas cuando autorA == autorB', () => {
+        const kata1 = new Kata('Kata1', 'AutorA', 'Descripcion1', 'Dificultad1');
+        const kata2 = new Kata('Kata2', 'AutorA', 'Descripcion2', 'Dificultad2');
+        const catalogo = new CatalogoKata();
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+    
+        catalogo.ordenarPorAutor();
+    
+        const listaOrdenada = catalogo.getLista();
+        expect(listaOrdenada[0].getNombre()).toEqual('Kata1');
+        expect(listaOrdenada[1].getNombre()).toEqual('Kata2');
+    });
+    test('debería ordenar las katas por autor cuando autorA > autorB', () => {
+        const kata1 = new Kata('Kata1', 'AutorB', 'Descripcion1', 'Dificultad1');
+        const kata2 = new Kata('Kata2', 'AutorA', 'Descripcion2', 'Dificultad2');
+        const catalogo = new CatalogoKata();
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+    
+        catalogo.ordenarPorAutor();
+    
+        const listaOrdenada = catalogo.getLista();
+        expect(listaOrdenada[0].getAutor()).toEqual('AutorA');
+        expect(listaOrdenada[1].getAutor()).toEqual('AutorB');
+    });
+    
+    
     
 });

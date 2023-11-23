@@ -169,7 +169,21 @@ export class CatalogoKata{
         });
     }
     
+    ordenarPorAutor() {
+        this.listaKatas.sort((kataA, kataB) => {
+            const autorA = kataA.getAutor().toLowerCase();
+            const autorB = kataB.getAutor().toLowerCase();
     
+            if (autorA < autorB) {
+                return -1;
+            }
+            else if (autorA > autorB) {
+                return 1;
+            } else {
+                return 0;
+            } 
+        });
+    }
 
     clone() {
         const nuevoCatalogo = new CatalogoKata();
