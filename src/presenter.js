@@ -12,7 +12,7 @@ const aniadir_nombre = document.querySelector("#nombre-kata");
 const aniadir_autor = document.querySelector("#nombre-autor");
 const aniadir_desc = document.querySelector("#desc-kata");
 const aniadir_dif = document.querySelector("#dificultad-kata");
-const aniadir_est = document.querySelector("#estado-kata");
+const cambiar_est = document.querySelector("#estado-kata");
 
 
 let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado');
@@ -28,7 +28,9 @@ let prueba9 = new Kata('kata 10', 'Elena', 'Descripcion Elena', 'Intermedio');
 let prueba10 = new Kata('kata 11', 'Pedro', 'Descripcion Pedro', 'Basico');
 let prueba11 = new Kata('kata 12', 'Mari', 'Descripcion Mari', 'Basico');
 
-
+prueba1.setEstado("Terminado");
+prueba3.setEstado("Terminado");
+prueba7.setEstado("Terminado");
 
 const lista = new CatalogoKata();
 lista.agregarKata(prueba);
@@ -61,6 +63,7 @@ function mostrarCatalogoKatas(kata) {
   "<span>"+ kata.getDescCorta() + "</span>"+
   "<span>" + kata.getAutor() + "</span>" +
   "<span>" + kata.getDificultad() + "</span>" +
+  "<span>" + kata.getEstado() + "</span>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"editar-button\">Editar</button>" + 
   "<button data-id=\"" + kata.getId() + "\" class=\"eliminar-button\">Eliminar</button>" +
   "<button data-id=\"" + kata.getId() + "\" class=\"detalle-button\">Detalle</button>" +
