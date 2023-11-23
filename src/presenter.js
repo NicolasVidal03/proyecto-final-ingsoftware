@@ -12,6 +12,7 @@ const aniadir_nombre = document.querySelector("#nombre-kata");
 const aniadir_autor = document.querySelector("#nombre-autor");
 const aniadir_desc = document.querySelector("#desc-kata");
 const aniadir_dif = document.querySelector("#dificultad-kata");
+const aniadir_est = document.querySelector("#estado-kata");
 
 
 let prueba = new Kata('kata 1', 'Oswa', 'Descripcion Oswa', 'Avanzado');
@@ -255,3 +256,17 @@ function verDetalle(posDetalle) {
   document.querySelector("#detalle-calificacion").innerHTML = lista.getLista()[posDetalle].getPuntuacion();
 }
 
+const buscar_kata_estado = document.querySelector("#buscar-por-estado");
+const buscadorEst = document.querySelector("#buscadorEstado");
+
+buscar_kata_estado.addEventListener("change", (event) => {
+  event.preventDefault();
+  const listaBuscador = lista.buscarPorEstado(buscadorEst.value);
+  if (listaBuscador.length != 0) {
+    catalogoCompleto.innerHTML = "";
+    listaBuscador.forEach(mostrarCatalogoKatas);
+  }
+  else {
+    alert("No hay katas con ese estado");
+  }
+});
