@@ -177,6 +177,12 @@ describe("Sumador", () => {
       cy.get("#contenedor-kata").find(".detalle-button").click();
       cy.get("#detalle-kata").find("#detalle-calificacion").should("contain", "Sin calificar");
     });
-    
+    it("mostrar katas ordenadas por nombre", () => {
+      cy.visit("/");
+      cy.get("#ord").select("Por nombre");
+      cy.get("#resultado-div").find("h4:eq(0)").should("contain", "Contando Valles");
+      cy.get("#resultado-div").find("h4:eq(1)").should("contain", "Eliminar Duplicados de un Arreglo Ordenado");
+      cy.get("#resultado-div").find("h4:eq(2)").should("contain", "Encontrar Número Faltante");
+    });
 
 });
