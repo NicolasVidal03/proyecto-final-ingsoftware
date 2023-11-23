@@ -156,4 +156,22 @@ export class CatalogoKata{
             } 
         });
     }
+
+    clone() {
+        const nuevoCatalogo = new CatalogoKata();
+        
+        for (const kata of this.listaKatas) {
+            const nuevoKata = new Kata(
+                kata.getNombre(),
+                kata.getAutor(),
+                kata.getDescripcion(),
+                kata.getDificultad(),
+                kata.getPuntuacion()
+            );
+            nuevoKata.setId(kata.getId());
+            nuevoCatalogo.agregarKata(nuevoKata);
+        }
+
+        return nuevoCatalogo;
+    }
 }

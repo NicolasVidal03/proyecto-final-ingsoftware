@@ -249,4 +249,17 @@ describe("Obtiene el nombre", () => {
         expect(catalogo.getLista()[4].getNombre()).toEqual("D");
         expect(catalogo.getLista()[5].getNombre()).toEqual("E");
     });
+    it("copia una instancia de la clase catalogoKata", () => {
+        const catalogo = new CatalogoKata();
+        const kata1 = new Kata('A', 'autor1', "", "");
+        const kata2 = new Kata('B', 'autor2', "", "");
+        const kata3 = new Kata('C', 'autor3', "", "");
+        catalogo.agregarKata(kata1);
+        catalogo.agregarKata(kata2);
+        catalogo.agregarKata(kata3);
+        const copiaLista = catalogo.clone();
+        expect(copiaLista.getLista()[0].getNombre()).toEqual("A");
+        expect(copiaLista.getLista()[1].getNombre()).toEqual("B");
+        expect(copiaLista.getLista()[2].getNombre()).toEqual("C");
+    });
 });

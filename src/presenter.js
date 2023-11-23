@@ -8,13 +8,14 @@ const catalogoCompleto = document.querySelector("#resultado-div");
 const form_editarKata = document.querySelector("#editar-kata");
 
 const form_buscar_dificultad = document.querySelector("#buscar");
+const form_ordenar = document.querySelector("#ordenar");
 
 const aniadir_nombre = document.querySelector("#nombre-kata");
 const aniadir_autor = document.querySelector("#nombre-autor");
 const aniadir_desc = document.querySelector("#desc-kata");
 const aniadir_dif = document.querySelector("#dificultad-kata");
 
-let prueba = new Kata('Suma de Dos Números', 'Oswaldo', 'Dado un arreglo de números enteros, devuelve los índices de los dos números de manera que sumen un objetivo específico.', 'Intermedio');
+let prueba = new Kata('Sumas de Dos Números', 'Oswaldo', 'Dado un arreglo de números enteros, devuelve los índices de los dos números de manera que sumen un objetivo específico.', 'Intermedio');
 let prueba1 = new Kata('Invertir una Cadena', 'Nicolás', 'Escribe una función que invierta una cadena. No uses métodos de inversión incorporados.', 'Basico');
 let prueba2 = new Kata('Verificador de Palíndromos', 'Cristina', 'Verifica si una cadena dada es un palíndromo. Ignora caracteres no alfanuméricos.', 'Intermedio');
 let prueba3 = new Kata('Mezclar Arreglos Ordenados', 'Sebastián', 'Dados dos arreglos ordenados, mézclalos en un solo arreglo ordenado.', 'Avanzado');
